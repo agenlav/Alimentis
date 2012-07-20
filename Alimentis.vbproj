@@ -77,22 +77,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AliDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="F_utente.Designer.vb">
+      <DependentUpon>F_utente.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="F_utente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm1.Designer.vb">
-      <DependentUpon>LoginForm1.vb</DependentUpon>
+    <Compile Include="F_Accesso.Designer.vb">
+      <DependentUpon>F_Accesso.vb</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm1.vb">
+    <Compile Include="F_Accesso.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDIParent1.Designer.vb">
-      <DependentUpon>MDIParent1.vb</DependentUpon>
+    <Compile Include="MDI_ALIMENTIS.Designer.vb">
+      <DependentUpon>MDI_ALIMENTIS.vb</DependentUpon>
     </Compile>
-    <Compile Include="MDIParent1.vb">
+    <Compile Include="MDI_ALIMENTIS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -112,14 +112,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="F_utente.resx">
+      <DependentUpon>F_utente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm1.resx">
-      <DependentUpon>LoginForm1.vb</DependentUpon>
+    <EmbeddedResource Include="F_Accesso.resx">
+      <DependentUpon>F_Accesso.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent1.resx">
-      <DependentUpon>MDIParent1.vb</DependentUpon>
+    <EmbeddedResource Include="MDI_ALIMENTIS.resx">
+      <DependentUpon>MDI_ALIMENTIS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
