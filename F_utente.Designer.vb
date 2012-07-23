@@ -47,10 +47,10 @@ Partial Class F_utente
         Me.ID_centroTextBox = New System.Windows.Forms.TextBox()
         Me.ID_utenteTextBox = New System.Windows.Forms.TextBox()
         Me.Data_registrazioneDateTimePicker = New System.Windows.Forms.DateTimePicker()
-        Me.G_sesso = New System.Windows.Forms.GroupBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.UtentiBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OperatoriBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OperatoriTableAdapter = New Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         ID_centroLabel = New System.Windows.Forms.Label()
         ID_utenteLabel = New System.Windows.Forms.Label()
         Data_registrazioneLabel = New System.Windows.Forms.Label()
@@ -58,8 +58,7 @@ Partial Class F_utente
         CType(Me.UtentiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UtentiBindingNavigator.SuspendLayout()
-        Me.G_sesso.SuspendLayout()
-        CType(Me.UtentiBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ID_centroLabel
@@ -245,53 +244,41 @@ Partial Class F_utente
         Me.Data_registrazioneDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.Data_registrazioneDateTimePicker.TabIndex = 6
         '
-        'G_sesso
+        'OperatoriBindingSource
         '
-        Me.G_sesso.Controls.Add(Me.RadioButton2)
-        Me.G_sesso.Controls.Add(Me.RadioButton1)
-        Me.G_sesso.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource1, "ID_sesso", True))
-        Me.G_sesso.Location = New System.Drawing.Point(73, 125)
-        Me.G_sesso.Name = "G_sesso"
-        Me.G_sesso.Size = New System.Drawing.Size(124, 79)
-        Me.G_sesso.TabIndex = 7
-        Me.G_sesso.TabStop = False
-        Me.G_sesso.Text = "Genere"
+        Me.OperatoriBindingSource.DataMember = "operatori"
+        Me.OperatoriBindingSource.DataSource = Me.AliDBDataSet
         '
-        'RadioButton2
+        'OperatoriTableAdapter
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Alimentis.My.MySettings.Default, "F", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.RadioButton2.Location = New System.Drawing.Point(27, 44)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(71, 17)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Femminile"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.OperatoriTableAdapter.ClearBeforeFill = True
         '
-        'RadioButton1
+        'ComboBox1
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.Alimentis.My.MySettings.Default, "M", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.RadioButton1.Location = New System.Drawing.Point(27, 20)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(67, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Maschile"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_sesso", True))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"M", "F"})
+        Me.ComboBox1.Location = New System.Drawing.Point(166, 170)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBox1.TabIndex = 7
         '
-        'UtentiBindingSource1
+        'Label1
         '
-        Me.UtentiBindingSource1.DataMember = "utenti"
-        Me.UtentiBindingSource1.DataSource = Me.AliDBDataSet
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(121, 173)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(45, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Genere:"
         '
         'F_utente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1218, 751)
-        Me.Controls.Add(Me.G_sesso)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Data_registrazioneLabel)
         Me.Controls.Add(Me.Data_registrazioneDateTimePicker)
         Me.Controls.Add(ID_utenteLabel)
@@ -306,9 +293,7 @@ Partial Class F_utente
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UtentiBindingNavigator.ResumeLayout(False)
         Me.UtentiBindingNavigator.PerformLayout()
-        Me.G_sesso.ResumeLayout(False)
-        Me.G_sesso.PerformLayout()
-        CType(Me.UtentiBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,8 +318,8 @@ Partial Class F_utente
     Friend WithEvents ID_centroTextBox As System.Windows.Forms.TextBox
     Friend WithEvents ID_utenteTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Data_registrazioneDateTimePicker As System.Windows.Forms.DateTimePicker
-    Friend WithEvents G_sesso As System.Windows.Forms.GroupBox
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-    Friend WithEvents UtentiBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents OperatoriBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents OperatoriTableAdapter As Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

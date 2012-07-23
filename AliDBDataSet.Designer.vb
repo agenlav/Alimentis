@@ -966,7 +966,7 @@ Partial Public Class AliDBDataSet
                     ByVal ID_centro As Integer,  _
                     ByVal ID_utente As Integer,  _
                     ByVal data_registrazione As Date,  _
-                    ByVal ID_sesso As String,  _
+                    ByVal ID_sesso As Char,  _
                     ByVal ID_titolo_studio As Short,  _
                     ByVal ID_stato_civile As Short,  _
                     ByVal ID_cittadinanza As Short,  _
@@ -1060,7 +1060,7 @@ Partial Public Class AliDBDataSet
             MyBase.Columns.Add(Me.columnID_utente)
             Me.columndata_registrazione = New Global.System.Data.DataColumn("data_registrazione", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndata_registrazione)
-            Me.columnID_sesso = New Global.System.Data.DataColumn("ID_sesso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnID_sesso = New Global.System.Data.DataColumn("ID_sesso", GetType(Char), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_sesso)
             Me.columnID_titolo_studio = New Global.System.Data.DataColumn("ID_titolo_studio", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_titolo_studio)
@@ -1113,7 +1113,6 @@ Partial Public Class AliDBDataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_utente}, true))
             Me.columnID_utente.AllowDBNull = false
             Me.columnID_utente.Unique = true
-            Me.columnID_sesso.MaxLength = 1
             Me.columnID_comune_residenza.MaxLength = 6
             Me.columnlavoro_estero.MaxLength = 250
             Me.columnlavoro_italia.MaxLength = 50
@@ -1385,10 +1384,10 @@ Partial Public Class AliDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ID_sesso() As String
+        Public Property ID_sesso() As Char
             Get
                 Try 
-                    Return CType(Me(Me.tableutenti.ID_sessoColumn),String)
+                    Return CType(Me(Me.tableutenti.ID_sessoColumn),Char)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("Il valore della colonna 'ID_sesso' nella tabella 'utenti' è DBNull.", e)
                 End Try
@@ -2916,7 +2915,7 @@ Namespace AliDBDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID_centro, ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_s"& _ 
@@ -2927,6 +2926,166 @@ Namespace AliDBDataSetTableAdapters
                 " ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_"& _ 
                 "salute, ID_altri_problemi FROM utenti"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO `utenti` (`ID_centro`, `ID_utente`, `data_registrazione`, `ID_sesso`,"& _ 
+                " `ID_titolo_studio`, `ID_stato_civile`, `ID_cittadinanza`, `ID_nazionalita`, `ID"& _ 
+                "_comune_residenza`, `ID_dimora`, `ID_tipo_alloggio`, `ID_nucleo_familiare`, `ID_"& _ 
+                "partner`, `lavoro_estero`, `lavoro_italia`, `ID_condizione_professionale`, `ID_r"& _ 
+                "edditto_mensile`, `ID_altro_redditto`, `ID_condizione_giuridica`, `ID_dipendenza"& _ 
+                "`, `ID_problemi_familiari`, `ID_disabilita`, `ID_migrazione`, `ID_problemi_istru"& _ 
+                "zione`, `ID_problemi_lavoro`, `ID_problemi_economici`, `ID_problemi_salute`, `ID"& _ 
+                "_altri_problemi`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
+                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("data_registrazione", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "data_registrazione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_sesso", Global.System.Data.OleDb.OleDbType.WChar, 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_sesso", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_titolo_studio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_titolo_studio", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_stato_civile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_stato_civile", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_cittadinanza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_cittadinanza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_nazionalita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nazionalita", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_comune_residenza", Global.System.Data.OleDb.OleDbType.WChar, 6, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_comune_residenza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_dimora", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dimora", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_tipo_alloggio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_tipo_alloggio", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_nucleo_familiare", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nucleo_familiare", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_partner", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_partner", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("lavoro_estero", Global.System.Data.OleDb.OleDbType.WChar, 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_estero", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("lavoro_italia", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_italia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_condizione_professionale", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_professionale", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_redditto_mensile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_redditto_mensile", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altro_redditto", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altro_redditto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_condizione_giuridica", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_giuridica", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_dipendenza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dipendenza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_familiari", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_familiari", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_disabilita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_disabilita", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_migrazione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_migrazione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_istruzione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_istruzione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_lavoro", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_lavoro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_economici", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "UPDATE `utenti` SET `ID_centro` = ?, `ID_utente` = ?, `data_registrazione` = ?, `"& _ 
+                "ID_sesso` = ?, `ID_titolo_studio` = ?, `ID_stato_civile` = ?, `ID_cittadinanza` "& _ 
+                "= ?, `ID_nazionalita` = ?, `ID_comune_residenza` = ?, `ID_dimora` = ?, `ID_tipo_"& _ 
+                "alloggio` = ?, `ID_nucleo_familiare` = ?, `ID_partner` = ?, `lavoro_estero` = ?,"& _ 
+                " `lavoro_italia` = ?, `ID_condizione_professionale` = ?, `ID_redditto_mensile` ="& _ 
+                " ?, `ID_altro_redditto` = ?, `ID_condizione_giuridica` = ?, `ID_dipendenza` = ?,"& _ 
+                " `ID_problemi_familiari` = ?, `ID_disabilita` = ?, `ID_migrazione` = ?, `ID_prob"& _ 
+                "lemi_istruzione` = ?, `ID_problemi_lavoro` = ?, `ID_problemi_economici` = ?, `ID"& _ 
+                "_problemi_salute` = ?, `ID_altri_problemi` = ? WHERE (((? = 1 AND `ID_centro` IS"& _ 
+                " NULL) OR (`ID_centro` = ?)) AND (`ID_utente` = ?) AND ((? = 1 AND `data_registr"& _ 
+                "azione` IS NULL) OR (`data_registrazione` = ?)) AND ((? = 1 AND `ID_sesso` IS NU"& _ 
+                "LL) OR (`ID_sesso` = ?)) AND ((? = 1 AND `ID_titolo_studio` IS NULL) OR (`ID_tit"& _ 
+                "olo_studio` = ?)) AND ((? = 1 AND `ID_stato_civile` IS NULL) OR (`ID_stato_civil"& _ 
+                "e` = ?)) AND ((? = 1 AND `ID_cittadinanza` IS NULL) OR (`ID_cittadinanza` = ?)) "& _ 
+                "AND ((? = 1 AND `ID_nazionalita` IS NULL) OR (`ID_nazionalita` = ?)) AND ((? = 1"& _ 
+                " AND `ID_comune_residenza` IS NULL) OR (`ID_comune_residenza` = ?)) AND ((? = 1 "& _ 
+                "AND `ID_dimora` IS NULL) OR (`ID_dimora` = ?)) AND ((? = 1 AND `ID_tipo_alloggio"& _ 
+                "` IS NULL) OR (`ID_tipo_alloggio` = ?)) AND ((? = 1 AND `ID_nucleo_familiare` IS"& _ 
+                " NULL) OR (`ID_nucleo_familiare` = ?)) AND ((? = 1 AND `ID_partner` IS NULL) OR "& _ 
+                "(`ID_partner` = ?)) AND ((? = 1 AND `lavoro_estero` IS NULL) OR (`lavoro_estero`"& _ 
+                " = ?)) AND ((? = 1 AND `lavoro_italia` IS NULL) OR (`lavoro_italia` = ?)) AND (("& _ 
+                "? = 1 AND `ID_condizione_professionale` IS NULL) OR (`ID_condizione_professional"& _ 
+                "e` = ?)) AND ((? = 1 AND `ID_redditto_mensile` IS NULL) OR (`ID_redditto_mensile"& _ 
+                "` = ?)) AND ((? = 1 AND `ID_altro_redditto` IS NULL) OR (`ID_altro_redditto` = ?"& _ 
+                ")) AND ((? = 1 AND `ID_condizione_giuridica` IS NULL) OR (`ID_condizione_giuridi"& _ 
+                "ca` = ?)) AND ((? = 1 AND `ID_dipendenza` IS NULL) OR (`ID_dipendenza` = ?)) AND"& _ 
+                " ((? = 1 AND `ID_problemi_familiari` IS NULL) OR (`ID_problemi_familiari` = ?)) "& _ 
+                "AND ((? = 1 AND `ID_disabilita` IS NULL) OR (`ID_disabilita` = ?)) AND ((? = 1 A"& _ 
+                "ND `ID_migrazione` IS NULL) OR (`ID_migrazione` = ?)) AND ((? = 1 AND `ID_proble"& _ 
+                "mi_istruzione` IS NULL) OR (`ID_problemi_istruzione` = ?)) AND ((? = 1 AND `ID_p"& _ 
+                "roblemi_lavoro` IS NULL) OR (`ID_problemi_lavoro` = ?)) AND ((? = 1 AND `ID_prob"& _ 
+                "lemi_economici` IS NULL) OR (`ID_problemi_economici` = ?)) AND ((? = 1 AND `ID_p"& _ 
+                "roblemi_salute` IS NULL) OR (`ID_problemi_salute` = ?)) AND ((? = 1 AND `ID_altr"& _ 
+                "i_problemi` IS NULL) OR (`ID_altri_problemi` = ?)))"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("data_registrazione", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "data_registrazione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_sesso", Global.System.Data.OleDb.OleDbType.WChar, 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_sesso", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_titolo_studio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_titolo_studio", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_stato_civile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_stato_civile", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_cittadinanza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_cittadinanza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_nazionalita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nazionalita", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_comune_residenza", Global.System.Data.OleDb.OleDbType.WChar, 6, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_comune_residenza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_dimora", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dimora", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_tipo_alloggio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_tipo_alloggio", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_nucleo_familiare", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nucleo_familiare", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_partner", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_partner", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("lavoro_estero", Global.System.Data.OleDb.OleDbType.WChar, 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_estero", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("lavoro_italia", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_italia", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_condizione_professionale", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_professionale", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_redditto_mensile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_redditto_mensile", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altro_redditto", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altro_redditto", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_condizione_giuridica", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_giuridica", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_dipendenza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dipendenza", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_familiari", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_familiari", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_disabilita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_disabilita", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_migrazione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_migrazione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_istruzione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_istruzione", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_lavoro", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_lavoro", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_economici", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_centro1", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_data_registrazione", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "data_registrazione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_data_registrazione1", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "data_registrazione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_sesso", Global.System.Data.OleDb.OleDbType.WChar, 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_sesso", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_sesso1", Global.System.Data.OleDb.OleDbType.WChar, 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_sesso", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_titolo_studio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_titolo_studio", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_titolo_studio1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_titolo_studio", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_stato_civile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_stato_civile", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_stato_civile1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_stato_civile", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_cittadinanza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_cittadinanza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_cittadinanza1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_cittadinanza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_nazionalita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nazionalita", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_nazionalita1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nazionalita", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_comune_residenza", Global.System.Data.OleDb.OleDbType.WChar, 6, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_comune_residenza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_comune_residenza1", Global.System.Data.OleDb.OleDbType.WChar, 6, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_comune_residenza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_dimora", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dimora", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_dimora1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dimora", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_tipo_alloggio", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_tipo_alloggio", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_tipo_alloggio1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_tipo_alloggio", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_nucleo_familiare", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nucleo_familiare", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_nucleo_familiare1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_nucleo_familiare", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_partner", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_partner", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_partner1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_partner", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_lavoro_estero", Global.System.Data.OleDb.OleDbType.WChar, 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_estero", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_lavoro_estero1", Global.System.Data.OleDb.OleDbType.WChar, 250, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_estero", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_lavoro_italia", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_italia", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_lavoro_italia1", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "lavoro_italia", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_condizione_professionale", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_professionale", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_condizione_professionale1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_professionale", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_redditto_mensile", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_redditto_mensile", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_redditto_mensile1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_redditto_mensile", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altro_redditto", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altro_redditto", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altro_redditto1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altro_redditto", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_condizione_giuridica", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_giuridica", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_condizione_giuridica1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_condizione_giuridica", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_dipendenza", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dipendenza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_dipendenza1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_dipendenza", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_familiari", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_familiari", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_familiari1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_familiari", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_disabilita", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_disabilita", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_disabilita1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_disabilita", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_migrazione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_migrazione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_migrazione1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_migrazione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_istruzione", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_istruzione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_istruzione1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_istruzione", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_lavoro", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_lavoro", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_lavoro1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_lavoro", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_economici", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_economici1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_salute1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altri_problemi1", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3882,6 +4041,716 @@ Namespace AliDBDataSetTableAdapters
                     ByVal Original_ID_problemi_salute As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
             Return Me.Update(ID_centro, Original_ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_stato_civile, ID_cittadinanza, ID_nazionalita, ID_comune_residenza, ID_dimora, ID_tipo_alloggio, ID_nucleo_familiare, ID_partner, lavoro_estero, lavoro_italia, ID_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizione_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione, ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_salute, ID_altri_problemi, Original_ID_centro, Original_ID_utente, Original_data_registrazione, Original_ID_sesso, Original_ID_titolo_studio, Original_ID_stato_civile, Original_ID_cittadinanza, Original_ID_nazionalita, Original_ID_comune_residenza, Original_ID_dimora, Original_ID_tipo_alloggio, Original_ID_nucleo_familiare, Original_ID_partner, Original_lavoro_estero, Original_lavoro_italia, Original_ID_condizione_professionale, Original_ID_redditto_mensile, Original_ID_altro_redditto, Original_ID_condizione_giuridica, Original_ID_dipendenza, Original_ID_problemi_familiari, Original_ID_disabilita, Original_ID_migrazione, Original_ID_problemi_istruzione, Original_ID_problemi_lavoro, Original_ID_problemi_economici, Original_ID_problemi_salute, Original_ID_altri_problemi)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function InsertQuery( _
+                    ByVal ID_centro As Global.System.Nullable(Of Integer),  _
+                    ByVal ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal data_registrazione As Global.System.Nullable(Of Date),  _
+                    ByVal ID_sesso As String,  _
+                    ByVal ID_titolo_studio As Global.System.Nullable(Of Short),  _
+                    ByVal ID_stato_civile As Global.System.Nullable(Of Short),  _
+                    ByVal ID_cittadinanza As Global.System.Nullable(Of Short),  _
+                    ByVal ID_nazionalita As Global.System.Nullable(Of Short),  _
+                    ByVal ID_comune_residenza As String,  _
+                    ByVal ID_dimora As Global.System.Nullable(Of Short),  _
+                    ByVal ID_tipo_alloggio As Global.System.Nullable(Of Short),  _
+                    ByVal ID_nucleo_familiare As Global.System.Nullable(Of Short),  _
+                    ByVal ID_partner As Global.System.Nullable(Of Short),  _
+                    ByVal lavoro_estero As String,  _
+                    ByVal lavoro_italia As String,  _
+                    ByVal ID_condizione_professionale As Global.System.Nullable(Of Short),  _
+                    ByVal ID_redditto_mensile As Global.System.Nullable(Of Short),  _
+                    ByVal ID_altro_redditto As Global.System.Nullable(Of Short),  _
+                    ByVal ID_condizione_giuridica As Global.System.Nullable(Of Short),  _
+                    ByVal ID_dipendenza As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_familiari As Global.System.Nullable(Of Short),  _
+                    ByVal ID_disabilita As Global.System.Nullable(Of Short),  _
+                    ByVal ID_migrazione As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_istruzione As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_economici As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_salute As Global.System.Nullable(Of Short),  _
+                    ByVal ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(1)
+            If (ID_centro.HasValue = true) Then
+                command.Parameters(0).Value = CType(ID_centro.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (ID_utente.HasValue = true) Then
+                command.Parameters(1).Value = CType(ID_utente.Value,Integer)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (data_registrazione.HasValue = true) Then
+                command.Parameters(2).Value = CType(data_registrazione.Value,Date)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ID_sesso Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(ID_sesso,String)
+            End If
+            If (ID_titolo_studio.HasValue = true) Then
+                command.Parameters(4).Value = CType(ID_titolo_studio.Value,Short)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (ID_stato_civile.HasValue = true) Then
+                command.Parameters(5).Value = CType(ID_stato_civile.Value,Short)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (ID_cittadinanza.HasValue = true) Then
+                command.Parameters(6).Value = CType(ID_cittadinanza.Value,Short)
+            Else
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (ID_nazionalita.HasValue = true) Then
+                command.Parameters(7).Value = CType(ID_nazionalita.Value,Short)
+            Else
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (ID_comune_residenza Is Nothing) Then
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(8).Value = CType(ID_comune_residenza,String)
+            End If
+            If (ID_dimora.HasValue = true) Then
+                command.Parameters(9).Value = CType(ID_dimora.Value,Short)
+            Else
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (ID_tipo_alloggio.HasValue = true) Then
+                command.Parameters(10).Value = CType(ID_tipo_alloggio.Value,Short)
+            Else
+                command.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (ID_nucleo_familiare.HasValue = true) Then
+                command.Parameters(11).Value = CType(ID_nucleo_familiare.Value,Short)
+            Else
+                command.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (ID_partner.HasValue = true) Then
+                command.Parameters(12).Value = CType(ID_partner.Value,Short)
+            Else
+                command.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (lavoro_estero Is Nothing) Then
+                command.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(13).Value = CType(lavoro_estero,String)
+            End If
+            If (lavoro_italia Is Nothing) Then
+                command.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(14).Value = CType(lavoro_italia,String)
+            End If
+            If (ID_condizione_professionale.HasValue = true) Then
+                command.Parameters(15).Value = CType(ID_condizione_professionale.Value,Short)
+            Else
+                command.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (ID_redditto_mensile.HasValue = true) Then
+                command.Parameters(16).Value = CType(ID_redditto_mensile.Value,Short)
+            Else
+                command.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (ID_altro_redditto.HasValue = true) Then
+                command.Parameters(17).Value = CType(ID_altro_redditto.Value,Short)
+            Else
+                command.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (ID_condizione_giuridica.HasValue = true) Then
+                command.Parameters(18).Value = CType(ID_condizione_giuridica.Value,Short)
+            Else
+                command.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (ID_dipendenza.HasValue = true) Then
+                command.Parameters(19).Value = CType(ID_dipendenza.Value,Short)
+            Else
+                command.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_familiari.HasValue = true) Then
+                command.Parameters(20).Value = CType(ID_problemi_familiari.Value,Short)
+            Else
+                command.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (ID_disabilita.HasValue = true) Then
+                command.Parameters(21).Value = CType(ID_disabilita.Value,Short)
+            Else
+                command.Parameters(21).Value = Global.System.DBNull.Value
+            End If
+            If (ID_migrazione.HasValue = true) Then
+                command.Parameters(22).Value = CType(ID_migrazione.Value,Short)
+            Else
+                command.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_istruzione.HasValue = true) Then
+                command.Parameters(23).Value = CType(ID_problemi_istruzione.Value,Short)
+            Else
+                command.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_lavoro.HasValue = true) Then
+                command.Parameters(24).Value = CType(ID_problemi_lavoro.Value,Short)
+            Else
+                command.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_economici.HasValue = true) Then
+                command.Parameters(25).Value = CType(ID_problemi_economici.Value,Short)
+            Else
+                command.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_salute.HasValue = true) Then
+                command.Parameters(26).Value = CType(ID_problemi_salute.Value,Short)
+            Else
+                command.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (ID_altri_problemi.HasValue = true) Then
+                command.Parameters(27).Value = CType(ID_altri_problemi.Value,Short)
+            Else
+                command.Parameters(27).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function UpdateQuery( _
+                    ByVal ID_centro As Global.System.Nullable(Of Integer),  _
+                    ByVal ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal data_registrazione As Global.System.Nullable(Of Date),  _
+                    ByVal ID_sesso As String,  _
+                    ByVal ID_titolo_studio As Global.System.Nullable(Of Short),  _
+                    ByVal ID_stato_civile As Global.System.Nullable(Of Short),  _
+                    ByVal ID_cittadinanza As Global.System.Nullable(Of Short),  _
+                    ByVal ID_nazionalita As Global.System.Nullable(Of Short),  _
+                    ByVal ID_comune_residenza As String,  _
+                    ByVal ID_dimora As Global.System.Nullable(Of Short),  _
+                    ByVal ID_tipo_alloggio As Global.System.Nullable(Of Short),  _
+                    ByVal ID_nucleo_familiare As Global.System.Nullable(Of Short),  _
+                    ByVal ID_partner As Global.System.Nullable(Of Short),  _
+                    ByVal lavoro_estero As String,  _
+                    ByVal lavoro_italia As String,  _
+                    ByVal ID_condizione_professionale As Global.System.Nullable(Of Short),  _
+                    ByVal ID_redditto_mensile As Global.System.Nullable(Of Short),  _
+                    ByVal ID_altro_redditto As Global.System.Nullable(Of Short),  _
+                    ByVal ID_condizione_giuridica As Global.System.Nullable(Of Short),  _
+                    ByVal ID_dipendenza As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_familiari As Global.System.Nullable(Of Short),  _
+                    ByVal ID_disabilita As Global.System.Nullable(Of Short),  _
+                    ByVal ID_migrazione As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_istruzione As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_economici As Global.System.Nullable(Of Short),  _
+                    ByVal ID_problemi_salute As Global.System.Nullable(Of Short),  _
+                    ByVal ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_centro As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ID_centro1 As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_data_registrazione As Global.System.Nullable(Of Date),  _
+                    ByVal Original_data_registrazione1 As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ID_sesso As String,  _
+                    ByVal Original_ID_sesso1 As String,  _
+                    ByVal Original_ID_titolo_studio As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_titolo_studio1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_stato_civile As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_stato_civile1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_cittadinanza As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_cittadinanza1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_nazionalita As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_nazionalita1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_comune_residenza As String,  _
+                    ByVal Original_ID_comune_residenza1 As String,  _
+                    ByVal Original_ID_dimora As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_dimora1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_tipo_alloggio As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_tipo_alloggio1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_nucleo_familiare As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_nucleo_familiare1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_partner As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_partner1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_lavoro_estero As String,  _
+                    ByVal Original_lavoro_estero1 As String,  _
+                    ByVal Original_lavoro_italia As String,  _
+                    ByVal Original_lavoro_italia1 As String,  _
+                    ByVal Original_ID_condizione_professionale As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_condizione_professionale1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_redditto_mensile As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_redditto_mensile1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_altro_redditto As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_altro_redditto1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_condizione_giuridica As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_condizione_giuridica1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_dipendenza As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_dipendenza1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_familiari As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_familiari1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_disabilita As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_disabilita1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_migrazione As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_migrazione1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_istruzione As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_istruzione1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_lavoro1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_economici As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_economici1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_salute As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_problemi_salute1 As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_altri_problemi1 As Global.System.Nullable(Of Short)) As Integer
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(2)
+            If (ID_centro.HasValue = true) Then
+                command.Parameters(0).Value = CType(ID_centro.Value,Integer)
+            Else
+                command.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (ID_utente.HasValue = true) Then
+                command.Parameters(1).Value = CType(ID_utente.Value,Integer)
+            Else
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (data_registrazione.HasValue = true) Then
+                command.Parameters(2).Value = CType(data_registrazione.Value,Date)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ID_sesso Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(ID_sesso,String)
+            End If
+            If (ID_titolo_studio.HasValue = true) Then
+                command.Parameters(4).Value = CType(ID_titolo_studio.Value,Short)
+            Else
+                command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (ID_stato_civile.HasValue = true) Then
+                command.Parameters(5).Value = CType(ID_stato_civile.Value,Short)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (ID_cittadinanza.HasValue = true) Then
+                command.Parameters(6).Value = CType(ID_cittadinanza.Value,Short)
+            Else
+                command.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (ID_nazionalita.HasValue = true) Then
+                command.Parameters(7).Value = CType(ID_nazionalita.Value,Short)
+            Else
+                command.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (ID_comune_residenza Is Nothing) Then
+                command.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(8).Value = CType(ID_comune_residenza,String)
+            End If
+            If (ID_dimora.HasValue = true) Then
+                command.Parameters(9).Value = CType(ID_dimora.Value,Short)
+            Else
+                command.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (ID_tipo_alloggio.HasValue = true) Then
+                command.Parameters(10).Value = CType(ID_tipo_alloggio.Value,Short)
+            Else
+                command.Parameters(10).Value = Global.System.DBNull.Value
+            End If
+            If (ID_nucleo_familiare.HasValue = true) Then
+                command.Parameters(11).Value = CType(ID_nucleo_familiare.Value,Short)
+            Else
+                command.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (ID_partner.HasValue = true) Then
+                command.Parameters(12).Value = CType(ID_partner.Value,Short)
+            Else
+                command.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (lavoro_estero Is Nothing) Then
+                command.Parameters(13).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(13).Value = CType(lavoro_estero,String)
+            End If
+            If (lavoro_italia Is Nothing) Then
+                command.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(14).Value = CType(lavoro_italia,String)
+            End If
+            If (ID_condizione_professionale.HasValue = true) Then
+                command.Parameters(15).Value = CType(ID_condizione_professionale.Value,Short)
+            Else
+                command.Parameters(15).Value = Global.System.DBNull.Value
+            End If
+            If (ID_redditto_mensile.HasValue = true) Then
+                command.Parameters(16).Value = CType(ID_redditto_mensile.Value,Short)
+            Else
+                command.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (ID_altro_redditto.HasValue = true) Then
+                command.Parameters(17).Value = CType(ID_altro_redditto.Value,Short)
+            Else
+                command.Parameters(17).Value = Global.System.DBNull.Value
+            End If
+            If (ID_condizione_giuridica.HasValue = true) Then
+                command.Parameters(18).Value = CType(ID_condizione_giuridica.Value,Short)
+            Else
+                command.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (ID_dipendenza.HasValue = true) Then
+                command.Parameters(19).Value = CType(ID_dipendenza.Value,Short)
+            Else
+                command.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_familiari.HasValue = true) Then
+                command.Parameters(20).Value = CType(ID_problemi_familiari.Value,Short)
+            Else
+                command.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (ID_disabilita.HasValue = true) Then
+                command.Parameters(21).Value = CType(ID_disabilita.Value,Short)
+            Else
+                command.Parameters(21).Value = Global.System.DBNull.Value
+            End If
+            If (ID_migrazione.HasValue = true) Then
+                command.Parameters(22).Value = CType(ID_migrazione.Value,Short)
+            Else
+                command.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_istruzione.HasValue = true) Then
+                command.Parameters(23).Value = CType(ID_problemi_istruzione.Value,Short)
+            Else
+                command.Parameters(23).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_lavoro.HasValue = true) Then
+                command.Parameters(24).Value = CType(ID_problemi_lavoro.Value,Short)
+            Else
+                command.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_economici.HasValue = true) Then
+                command.Parameters(25).Value = CType(ID_problemi_economici.Value,Short)
+            Else
+                command.Parameters(25).Value = Global.System.DBNull.Value
+            End If
+            If (ID_problemi_salute.HasValue = true) Then
+                command.Parameters(26).Value = CType(ID_problemi_salute.Value,Short)
+            Else
+                command.Parameters(26).Value = Global.System.DBNull.Value
+            End If
+            If (ID_altri_problemi.HasValue = true) Then
+                command.Parameters(27).Value = CType(ID_altri_problemi.Value,Short)
+            Else
+                command.Parameters(27).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_centro.HasValue = true) Then
+                command.Parameters(28).Value = CType(Original_ID_centro.Value,Integer)
+            Else
+                command.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_centro1.HasValue = true) Then
+                command.Parameters(29).Value = CType(Original_ID_centro1.Value,Integer)
+            Else
+                command.Parameters(29).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_utente.HasValue = true) Then
+                command.Parameters(30).Value = CType(Original_ID_utente.Value,Integer)
+            Else
+                command.Parameters(30).Value = Global.System.DBNull.Value
+            End If
+            If (Original_data_registrazione.HasValue = true) Then
+                command.Parameters(31).Value = CType(Original_data_registrazione.Value,Date)
+            Else
+                command.Parameters(31).Value = Global.System.DBNull.Value
+            End If
+            If (Original_data_registrazione1.HasValue = true) Then
+                command.Parameters(32).Value = CType(Original_data_registrazione1.Value,Date)
+            Else
+                command.Parameters(32).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_sesso Is Nothing) Then
+                command.Parameters(33).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(33).Value = CType(Original_ID_sesso,String)
+            End If
+            If (Original_ID_sesso1 Is Nothing) Then
+                command.Parameters(34).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(34).Value = CType(Original_ID_sesso1,String)
+            End If
+            If (Original_ID_titolo_studio.HasValue = true) Then
+                command.Parameters(35).Value = CType(Original_ID_titolo_studio.Value,Short)
+            Else
+                command.Parameters(35).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_titolo_studio1.HasValue = true) Then
+                command.Parameters(36).Value = CType(Original_ID_titolo_studio1.Value,Short)
+            Else
+                command.Parameters(36).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_stato_civile.HasValue = true) Then
+                command.Parameters(37).Value = CType(Original_ID_stato_civile.Value,Short)
+            Else
+                command.Parameters(37).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_stato_civile1.HasValue = true) Then
+                command.Parameters(38).Value = CType(Original_ID_stato_civile1.Value,Short)
+            Else
+                command.Parameters(38).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_cittadinanza.HasValue = true) Then
+                command.Parameters(39).Value = CType(Original_ID_cittadinanza.Value,Short)
+            Else
+                command.Parameters(39).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_cittadinanza1.HasValue = true) Then
+                command.Parameters(40).Value = CType(Original_ID_cittadinanza1.Value,Short)
+            Else
+                command.Parameters(40).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_nazionalita.HasValue = true) Then
+                command.Parameters(41).Value = CType(Original_ID_nazionalita.Value,Short)
+            Else
+                command.Parameters(41).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_nazionalita1.HasValue = true) Then
+                command.Parameters(42).Value = CType(Original_ID_nazionalita1.Value,Short)
+            Else
+                command.Parameters(42).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_comune_residenza Is Nothing) Then
+                command.Parameters(43).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(43).Value = CType(Original_ID_comune_residenza,String)
+            End If
+            If (Original_ID_comune_residenza1 Is Nothing) Then
+                command.Parameters(44).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(44).Value = CType(Original_ID_comune_residenza1,String)
+            End If
+            If (Original_ID_dimora.HasValue = true) Then
+                command.Parameters(45).Value = CType(Original_ID_dimora.Value,Short)
+            Else
+                command.Parameters(45).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_dimora1.HasValue = true) Then
+                command.Parameters(46).Value = CType(Original_ID_dimora1.Value,Short)
+            Else
+                command.Parameters(46).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_tipo_alloggio.HasValue = true) Then
+                command.Parameters(47).Value = CType(Original_ID_tipo_alloggio.Value,Short)
+            Else
+                command.Parameters(47).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_tipo_alloggio1.HasValue = true) Then
+                command.Parameters(48).Value = CType(Original_ID_tipo_alloggio1.Value,Short)
+            Else
+                command.Parameters(48).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_nucleo_familiare.HasValue = true) Then
+                command.Parameters(49).Value = CType(Original_ID_nucleo_familiare.Value,Short)
+            Else
+                command.Parameters(49).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_nucleo_familiare1.HasValue = true) Then
+                command.Parameters(50).Value = CType(Original_ID_nucleo_familiare1.Value,Short)
+            Else
+                command.Parameters(50).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_partner.HasValue = true) Then
+                command.Parameters(51).Value = CType(Original_ID_partner.Value,Short)
+            Else
+                command.Parameters(51).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_partner1.HasValue = true) Then
+                command.Parameters(52).Value = CType(Original_ID_partner1.Value,Short)
+            Else
+                command.Parameters(52).Value = Global.System.DBNull.Value
+            End If
+            If (Original_lavoro_estero Is Nothing) Then
+                command.Parameters(53).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(53).Value = CType(Original_lavoro_estero,String)
+            End If
+            If (Original_lavoro_estero1 Is Nothing) Then
+                command.Parameters(54).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(54).Value = CType(Original_lavoro_estero1,String)
+            End If
+            If (Original_lavoro_italia Is Nothing) Then
+                command.Parameters(55).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(55).Value = CType(Original_lavoro_italia,String)
+            End If
+            If (Original_lavoro_italia1 Is Nothing) Then
+                command.Parameters(56).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(56).Value = CType(Original_lavoro_italia1,String)
+            End If
+            If (Original_ID_condizione_professionale.HasValue = true) Then
+                command.Parameters(57).Value = CType(Original_ID_condizione_professionale.Value,Short)
+            Else
+                command.Parameters(57).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_condizione_professionale1.HasValue = true) Then
+                command.Parameters(58).Value = CType(Original_ID_condizione_professionale1.Value,Short)
+            Else
+                command.Parameters(58).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_redditto_mensile.HasValue = true) Then
+                command.Parameters(59).Value = CType(Original_ID_redditto_mensile.Value,Short)
+            Else
+                command.Parameters(59).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_redditto_mensile1.HasValue = true) Then
+                command.Parameters(60).Value = CType(Original_ID_redditto_mensile1.Value,Short)
+            Else
+                command.Parameters(60).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_altro_redditto.HasValue = true) Then
+                command.Parameters(61).Value = CType(Original_ID_altro_redditto.Value,Short)
+            Else
+                command.Parameters(61).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_altro_redditto1.HasValue = true) Then
+                command.Parameters(62).Value = CType(Original_ID_altro_redditto1.Value,Short)
+            Else
+                command.Parameters(62).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_condizione_giuridica.HasValue = true) Then
+                command.Parameters(63).Value = CType(Original_ID_condizione_giuridica.Value,Short)
+            Else
+                command.Parameters(63).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_condizione_giuridica1.HasValue = true) Then
+                command.Parameters(64).Value = CType(Original_ID_condizione_giuridica1.Value,Short)
+            Else
+                command.Parameters(64).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_dipendenza.HasValue = true) Then
+                command.Parameters(65).Value = CType(Original_ID_dipendenza.Value,Short)
+            Else
+                command.Parameters(65).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_dipendenza1.HasValue = true) Then
+                command.Parameters(66).Value = CType(Original_ID_dipendenza1.Value,Short)
+            Else
+                command.Parameters(66).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_familiari.HasValue = true) Then
+                command.Parameters(67).Value = CType(Original_ID_problemi_familiari.Value,Short)
+            Else
+                command.Parameters(67).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_familiari1.HasValue = true) Then
+                command.Parameters(68).Value = CType(Original_ID_problemi_familiari1.Value,Short)
+            Else
+                command.Parameters(68).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_disabilita.HasValue = true) Then
+                command.Parameters(69).Value = CType(Original_ID_disabilita.Value,Short)
+            Else
+                command.Parameters(69).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_disabilita1.HasValue = true) Then
+                command.Parameters(70).Value = CType(Original_ID_disabilita1.Value,Short)
+            Else
+                command.Parameters(70).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_migrazione.HasValue = true) Then
+                command.Parameters(71).Value = CType(Original_ID_migrazione.Value,Short)
+            Else
+                command.Parameters(71).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_migrazione1.HasValue = true) Then
+                command.Parameters(72).Value = CType(Original_ID_migrazione1.Value,Short)
+            Else
+                command.Parameters(72).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_istruzione.HasValue = true) Then
+                command.Parameters(73).Value = CType(Original_ID_problemi_istruzione.Value,Short)
+            Else
+                command.Parameters(73).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_istruzione1.HasValue = true) Then
+                command.Parameters(74).Value = CType(Original_ID_problemi_istruzione1.Value,Short)
+            Else
+                command.Parameters(74).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_lavoro.HasValue = true) Then
+                command.Parameters(75).Value = CType(Original_ID_problemi_lavoro.Value,Short)
+            Else
+                command.Parameters(75).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_lavoro1.HasValue = true) Then
+                command.Parameters(76).Value = CType(Original_ID_problemi_lavoro1.Value,Short)
+            Else
+                command.Parameters(76).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_economici.HasValue = true) Then
+                command.Parameters(77).Value = CType(Original_ID_problemi_economici.Value,Short)
+            Else
+                command.Parameters(77).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_economici1.HasValue = true) Then
+                command.Parameters(78).Value = CType(Original_ID_problemi_economici1.Value,Short)
+            Else
+                command.Parameters(78).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_salute.HasValue = true) Then
+                command.Parameters(79).Value = CType(Original_ID_problemi_salute.Value,Short)
+            Else
+                command.Parameters(79).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_problemi_salute1.HasValue = true) Then
+                command.Parameters(80).Value = CType(Original_ID_problemi_salute1.Value,Short)
+            Else
+                command.Parameters(80).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_altri_problemi.HasValue = true) Then
+                command.Parameters(81).Value = CType(Original_ID_altri_problemi.Value,Short)
+            Else
+                command.Parameters(81).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_altri_problemi1.HasValue = true) Then
+                command.Parameters(82).Value = CType(Original_ID_altri_problemi1.Value,Short)
+            Else
+                command.Parameters(82).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
         End Function
     End Class
     
