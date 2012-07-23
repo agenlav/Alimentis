@@ -21,7 +21,7 @@ Public Class F_Accesso
         ls_operatore = Me.operatoreTextBox.Text
         ls_password = Me.PasswordTextBox.Text
 
-        Dim conn As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=M:\Area Informatica\Alimentis\SVILUPPO\Alimentis\AliDB.mdb;Persist Security Info=False"
+        Dim conn As String = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\Alimentis\Alimentis_repo\Alimentis\AliDB.mdb;Persist Security Info=False"
         Dim cmd As String = "Select ID_operatore from operatori WHERE operatore = '" & ls_operatore & "' AND password = '" & ls_password & "';"
         Dim adapter As New OleDbDataAdapter(cmd, conn)
         Dim topics As New DataSet

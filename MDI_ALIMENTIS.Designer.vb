@@ -92,7 +92,7 @@ Partial Class MDI_ALIMENTIS
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(875, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(1016, 24)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -276,7 +276,7 @@ Partial Class MDI_ALIMENTIS
         'ConnessioneToolStripMenuItem
         '
         Me.ConnessioneToolStripMenuItem.Name = "ConnessioneToolStripMenuItem"
-        Me.ConnessioneToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.ConnessioneToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ConnessioneToolStripMenuItem.Text = "Nuovo utente"
         '
         'ViewMenu
@@ -406,7 +406,7 @@ Partial Class MDI_ALIMENTIS
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.OpenToolStripButton, Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.PrintToolStripButton, Me.PrintPreviewToolStripButton, Me.ToolStripSeparator2, Me.HelpToolStripButton})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(875, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(1016, 25)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
         '
@@ -479,9 +479,9 @@ Partial Class MDI_ALIMENTIS
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 641)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(875, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1016, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -495,7 +495,7 @@ Partial Class MDI_ALIMENTIS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(875, 453)
+        Me.ClientSize = New System.Drawing.Size(1016, 663)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)

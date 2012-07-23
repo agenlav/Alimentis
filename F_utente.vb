@@ -12,4 +12,8 @@
         Me.UtentiTableAdapter.Fill(Me.AliDBDataSet.utenti)
 
     End Sub
+
+    Private Sub GroupBox1_Enter(sender As System.Object, e As System.EventArgs) Handles G_sesso.Enter
+
+    End Sub
 End Class
