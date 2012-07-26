@@ -91,6 +91,12 @@ Public Class MDI_ALIMENTIS
 
 
     Private Sub ConnessioneToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ConnessioneToolStripMenuItem.Click
+
+        If Me.p_stato = DISCONNESSO Then
+            MsgBox("Eseguire la connessione!", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Attenzione!")
+            Exit Sub
+        End If
+
         Dim lf_utente As New F_utente
         lf_utente.MdiParent = Me
 

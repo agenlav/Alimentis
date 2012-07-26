@@ -23,32 +23,70 @@ Partial Class F_utente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Dim ID_centroLabel As System.Windows.Forms.Label
+        Dim ID_utenteLabel As System.Windows.Forms.Label
+        Dim Data_registrazioneLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Me.AliDBDataSet = New Alimentis.AliDBDataSet()
         Me.UtentiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UtentiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.utentiTableAdapter()
         Me.TableAdapterManager = New Alimentis.AliDBDataSetTableAdapters.TableAdapterManager()
         Me.UtentiBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.UtentiBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ID_centroTextBox = New System.Windows.Forms.TextBox()
+        Me.ID_utenteTextBox = New System.Windows.Forms.TextBox()
+        Me.Data_registrazioneDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.OperatoriBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OperatoriTableAdapter = New Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         ID_centroLabel = New System.Windows.Forms.Label()
+        ID_utenteLabel = New System.Windows.Forms.Label()
+        Data_registrazioneLabel = New System.Windows.Forms.Label()
         CType(Me.AliDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UtentiBindingNavigator.SuspendLayout()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ID_centroLabel
+        '
+        ID_centroLabel.AutoSize = True
+        ID_centroLabel.Location = New System.Drawing.Point(8, 74)
+        ID_centroLabel.Name = "ID_centroLabel"
+        ID_centroLabel.Size = New System.Drawing.Size(54, 13)
+        ID_centroLabel.TabIndex = 1
+        ID_centroLabel.Text = "ID centro:"
+        '
+        'ID_utenteLabel
+        '
+        ID_utenteLabel.AutoSize = True
+        ID_utenteLabel.Location = New System.Drawing.Point(8, 31)
+        ID_utenteLabel.Name = "ID_utenteLabel"
+        ID_utenteLabel.Size = New System.Drawing.Size(54, 13)
+        ID_utenteLabel.TabIndex = 3
+        ID_utenteLabel.Text = "ID utente:"
+        '
+        'Data_registrazioneLabel
+        '
+        Data_registrazioneLabel.AutoSize = True
+        Data_registrazioneLabel.Location = New System.Drawing.Point(232, 78)
+        Data_registrazioneLabel.Name = "Data_registrazioneLabel"
+        Data_registrazioneLabel.Size = New System.Drawing.Size(93, 13)
+        Data_registrazioneLabel.TabIndex = 5
+        Data_registrazioneLabel.Text = "data registrazione:"
         '
         'AliDBDataSet
         '
@@ -85,9 +123,34 @@ Partial Class F_utente
         Me.UtentiBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.UtentiBindingNavigator.Name = "UtentiBindingNavigator"
         Me.UtentiBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.UtentiBindingNavigator.Size = New System.Drawing.Size(311, 25)
+        Me.UtentiBindingNavigator.Size = New System.Drawing.Size(1218, 25)
         Me.UtentiBindingNavigator.TabIndex = 0
         Me.UtentiBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Aggiungi nuovo"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(34, 22)
+        Me.BindingNavigatorCountItem.Text = "di {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Numero totale di elementi"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Elimina"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -121,17 +184,10 @@ Partial Class F_utente
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Posizione corrente"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(34, 15)
-        Me.BindingNavigatorCountItem.Text = "di {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Numero totale di elementi"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -139,7 +195,7 @@ Partial Class F_utente
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Sposta avanti"
         '
         'BindingNavigatorMoveLastItem
@@ -148,62 +204,85 @@ Partial Class F_utente
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Sposta in ultima posizione"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Aggiungi nuovo"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Elimina"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'UtentiBindingNavigatorSaveItem
         '
         Me.UtentiBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.UtentiBindingNavigatorSaveItem.Image = CType(resources.GetObject("UtentiBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.UtentiBindingNavigatorSaveItem.Name = "UtentiBindingNavigatorSaveItem"
-        Me.UtentiBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.UtentiBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.UtentiBindingNavigatorSaveItem.Text = "Salva dati"
-        '
-        'ID_centroLabel
-        '
-        ID_centroLabel.AutoSize = True
-        ID_centroLabel.Location = New System.Drawing.Point(131, 58)
-        ID_centroLabel.Name = "ID_centroLabel"
-        ID_centroLabel.Size = New System.Drawing.Size(54, 13)
-        ID_centroLabel.TabIndex = 1
-        ID_centroLabel.Text = "ID centro:"
         '
         'ID_centroTextBox
         '
         Me.ID_centroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_centro", True))
-        Me.ID_centroTextBox.Location = New System.Drawing.Point(191, 55)
+        Me.ID_centroTextBox.Location = New System.Drawing.Point(68, 74)
         Me.ID_centroTextBox.Name = "ID_centroTextBox"
         Me.ID_centroTextBox.Size = New System.Drawing.Size(100, 20)
         Me.ID_centroTextBox.TabIndex = 2
+        '
+        'ID_utenteTextBox
+        '
+        Me.ID_utenteTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_utente", True))
+        Me.ID_utenteTextBox.Location = New System.Drawing.Point(68, 28)
+        Me.ID_utenteTextBox.Name = "ID_utenteTextBox"
+        Me.ID_utenteTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.ID_utenteTextBox.TabIndex = 4
+        '
+        'Data_registrazioneDateTimePicker
+        '
+        Me.Data_registrazioneDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.UtentiBindingSource, "data_registrazione", True))
+        Me.Data_registrazioneDateTimePicker.Location = New System.Drawing.Point(331, 74)
+        Me.Data_registrazioneDateTimePicker.Name = "Data_registrazioneDateTimePicker"
+        Me.Data_registrazioneDateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.Data_registrazioneDateTimePicker.TabIndex = 6
+        '
+        'OperatoriBindingSource
+        '
+        Me.OperatoriBindingSource.DataMember = "operatori"
+        Me.OperatoriBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'OperatoriTableAdapter
+        '
+        Me.OperatoriTableAdapter.ClearBeforeFill = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_sesso", True))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"M", "F"})
+        Me.ComboBox1.Location = New System.Drawing.Point(166, 170)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(181, 21)
+        Me.ComboBox1.TabIndex = 7
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(121, 173)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(45, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Genere:"
         '
         'F_utente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(311, 262)
+        Me.ClientSize = New System.Drawing.Size(1218, 751)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Data_registrazioneLabel)
+        Me.Controls.Add(Me.Data_registrazioneDateTimePicker)
+        Me.Controls.Add(ID_utenteLabel)
+        Me.Controls.Add(Me.ID_utenteTextBox)
         Me.Controls.Add(ID_centroLabel)
         Me.Controls.Add(Me.ID_centroTextBox)
         Me.Controls.Add(Me.UtentiBindingNavigator)
@@ -214,6 +293,7 @@ Partial Class F_utente
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UtentiBindingNavigator.ResumeLayout(False)
         Me.UtentiBindingNavigator.PerformLayout()
+        CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -236,4 +316,10 @@ Partial Class F_utente
     Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents UtentiBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents ID_centroTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ID_utenteTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Data_registrazioneDateTimePicker As System.Windows.Forms.DateTimePicker
+    Friend WithEvents OperatoriBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents OperatoriTableAdapter As Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
