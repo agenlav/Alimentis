@@ -26,7 +26,12 @@ Partial Class F_utente
         Dim ID_centroLabel As System.Windows.Forms.Label
         Dim ID_utenteLabel As System.Windows.Forms.Label
         Dim Data_registrazioneLabel As System.Windows.Forms.Label
+        Dim ID_sessoLabel As System.Windows.Forms.Label
+        Dim ID_titolo_studioLabel As System.Windows.Forms.Label
+        Dim ID_stato_civileLabel As System.Windows.Forms.Label
+        Dim ID_cittadinanzaLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
+        Dim ID_nazionalitaLabel As System.Windows.Forms.Label
         Me.AliDBDataSet = New Alimentis.AliDBDataSet()
         Me.UtentiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UtentiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.utentiTableAdapter()
@@ -49,16 +54,35 @@ Partial Class F_utente
         Me.Data_registrazioneDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.OperatoriBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OperatoriTableAdapter = New Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.FillBy_titoli_studioToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.FillBy_titoli_studioToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ID_sessoComboBox = New System.Windows.Forms.ComboBox()
+        Me.ID_titolo_studioComboBox = New System.Windows.Forms.ComboBox()
+        Me.TitolostudioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Titolo_studioTableAdapter = New Alimentis.AliDBDataSetTableAdapters.titolo_studioTableAdapter()
+        Me.ID_stato_civileComboBox = New System.Windows.Forms.ComboBox()
+        Me.StatocivileBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Stato_civileTableAdapter = New Alimentis.AliDBDataSetTableAdapters.stato_civileTableAdapter()
+        Me.ID_cittadinanzaComboBox = New System.Windows.Forms.ComboBox()
+        Me.CittadinanzaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CittadinanzaTableAdapter = New Alimentis.AliDBDataSetTableAdapters.cittadinanzaTableAdapter()
+        Me.ID_nazionalitaComboBox = New System.Windows.Forms.ComboBox()
         ID_centroLabel = New System.Windows.Forms.Label()
         ID_utenteLabel = New System.Windows.Forms.Label()
         Data_registrazioneLabel = New System.Windows.Forms.Label()
+        ID_sessoLabel = New System.Windows.Forms.Label()
+        ID_titolo_studioLabel = New System.Windows.Forms.Label()
+        ID_stato_civileLabel = New System.Windows.Forms.Label()
+        ID_cittadinanzaLabel = New System.Windows.Forms.Label()
+        ID_nazionalitaLabel = New System.Windows.Forms.Label()
         CType(Me.AliDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UtentiBindingNavigator.SuspendLayout()
         CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TitolostudioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StatocivileBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ID_centroLabel
@@ -88,6 +112,42 @@ Partial Class F_utente
         Data_registrazioneLabel.TabIndex = 5
         Data_registrazioneLabel.Text = "data registrazione:"
         '
+        'ID_sessoLabel
+        '
+        ID_sessoLabel.AutoSize = True
+        ID_sessoLabel.Location = New System.Drawing.Point(108, 140)
+        ID_sessoLabel.Name = "ID_sessoLabel"
+        ID_sessoLabel.Size = New System.Drawing.Size(45, 13)
+        ID_sessoLabel.TabIndex = 13
+        ID_sessoLabel.Text = "Genere:"
+        '
+        'ID_titolo_studioLabel
+        '
+        ID_titolo_studioLabel.AutoSize = True
+        ID_titolo_studioLabel.Location = New System.Drawing.Point(86, 167)
+        ID_titolo_studioLabel.Name = "ID_titolo_studioLabel"
+        ID_titolo_studioLabel.Size = New System.Drawing.Size(67, 13)
+        ID_titolo_studioLabel.TabIndex = 14
+        ID_titolo_studioLabel.Text = "Titolo studio:"
+        '
+        'ID_stato_civileLabel
+        '
+        ID_stato_civileLabel.AutoSize = True
+        ID_stato_civileLabel.Location = New System.Drawing.Point(91, 194)
+        ID_stato_civileLabel.Name = "ID_stato_civileLabel"
+        ID_stato_civileLabel.Size = New System.Drawing.Size(62, 13)
+        ID_stato_civileLabel.TabIndex = 15
+        ID_stato_civileLabel.Text = "Stato civile:"
+        '
+        'ID_cittadinanzaLabel
+        '
+        ID_cittadinanzaLabel.AutoSize = True
+        ID_cittadinanzaLabel.Location = New System.Drawing.Point(84, 221)
+        ID_cittadinanzaLabel.Name = "ID_cittadinanzaLabel"
+        ID_cittadinanzaLabel.Size = New System.Drawing.Size(68, 13)
+        ID_cittadinanzaLabel.TabIndex = 16
+        ID_cittadinanzaLabel.Text = "Cittadinanza:"
+        '
         'AliDBDataSet
         '
         Me.AliDBDataSet.DataSetName = "AliDBDataSet"
@@ -104,8 +164,18 @@ Partial Class F_utente
         '
         'TableAdapterManager
         '
+        Me.TableAdapterManager.alloggioTableAdapter = Nothing
+        Me.TableAdapterManager.altri_redditiTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.cittadinanzaTableAdapter = Nothing
+        Me.TableAdapterManager.condizione_professionaleTableAdapter = Nothing
+        Me.TableAdapterManager.dimoraTableAdapter = Nothing
+        Me.TableAdapterManager.nucleo_familiareTableAdapter = Nothing
         Me.TableAdapterManager.operatoriTableAdapter = Nothing
+        Me.TableAdapterManager.paesiTableAdapter = Nothing
+        Me.TableAdapterManager.reddito_individualeTableAdapter = Nothing
+        Me.TableAdapterManager.stato_civileTableAdapter = Nothing
+        Me.TableAdapterManager.titolo_studioTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = Alimentis.AliDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.utentiTableAdapter = Me.UtentiTableAdapter
         '
@@ -253,32 +323,123 @@ Partial Class F_utente
         '
         Me.OperatoriTableAdapter.ClearBeforeFill = True
         '
-        'ComboBox1
+        'FillBy_titoli_studioToolStripButton
         '
-        Me.ComboBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_sesso", True))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"M", "F"})
-        Me.ComboBox1.Location = New System.Drawing.Point(166, 170)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(181, 21)
-        Me.ComboBox1.TabIndex = 7
+        Me.FillBy_titoli_studioToolStripButton.Name = "FillBy_titoli_studioToolStripButton"
+        Me.FillBy_titoli_studioToolStripButton.Size = New System.Drawing.Size(23, 23)
         '
-        'Label1
+        'FillBy_titoli_studioToolStripButton1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(121, 173)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(45, 13)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Genere:"
+        Me.FillBy_titoli_studioToolStripButton1.Name = "FillBy_titoli_studioToolStripButton1"
+        Me.FillBy_titoli_studioToolStripButton1.Size = New System.Drawing.Size(23, 23)
+        '
+        'ID_sessoComboBox
+        '
+        Me.ID_sessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_sesso", True))
+        Me.ID_sessoComboBox.FormattingEnabled = True
+        Me.ID_sessoComboBox.Items.AddRange(New Object() {"M", "F"})
+        Me.ID_sessoComboBox.Location = New System.Drawing.Point(159, 134)
+        Me.ID_sessoComboBox.Name = "ID_sessoComboBox"
+        Me.ID_sessoComboBox.Size = New System.Drawing.Size(52, 21)
+        Me.ID_sessoComboBox.TabIndex = 14
+        '
+        'ID_titolo_studioComboBox
+        '
+        Me.ID_titolo_studioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_titolo_studio", True))
+        Me.ID_titolo_studioComboBox.DataSource = Me.TitolostudioBindingSource
+        Me.ID_titolo_studioComboBox.DisplayMember = "descrizione"
+        Me.ID_titolo_studioComboBox.FormattingEnabled = True
+        Me.ID_titolo_studioComboBox.Location = New System.Drawing.Point(159, 161)
+        Me.ID_titolo_studioComboBox.Name = "ID_titolo_studioComboBox"
+        Me.ID_titolo_studioComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_titolo_studioComboBox.TabIndex = 15
+        Me.ID_titolo_studioComboBox.ValueMember = "ID_titolo_studio"
+        '
+        'TitolostudioBindingSource
+        '
+        Me.TitolostudioBindingSource.DataMember = "titolo_studio"
+        Me.TitolostudioBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Titolo_studioTableAdapter
+        '
+        Me.Titolo_studioTableAdapter.ClearBeforeFill = True
+        '
+        'ID_stato_civileComboBox
+        '
+        Me.ID_stato_civileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_stato_civile", True))
+        Me.ID_stato_civileComboBox.DataSource = Me.StatocivileBindingSource
+        Me.ID_stato_civileComboBox.DisplayMember = "descrizione"
+        Me.ID_stato_civileComboBox.FormattingEnabled = True
+        Me.ID_stato_civileComboBox.Location = New System.Drawing.Point(159, 188)
+        Me.ID_stato_civileComboBox.Name = "ID_stato_civileComboBox"
+        Me.ID_stato_civileComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_stato_civileComboBox.TabIndex = 16
+        Me.ID_stato_civileComboBox.ValueMember = "ID_stato_civile"
+        '
+        'StatocivileBindingSource
+        '
+        Me.StatocivileBindingSource.DataMember = "stato_civile"
+        Me.StatocivileBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Stato_civileTableAdapter
+        '
+        Me.Stato_civileTableAdapter.ClearBeforeFill = True
+        '
+        'ID_cittadinanzaComboBox
+        '
+        Me.ID_cittadinanzaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_cittadinanza", True))
+        Me.ID_cittadinanzaComboBox.DataSource = Me.CittadinanzaBindingSource
+        Me.ID_cittadinanzaComboBox.DisplayMember = "descrizione"
+        Me.ID_cittadinanzaComboBox.FormattingEnabled = True
+        Me.ID_cittadinanzaComboBox.Location = New System.Drawing.Point(159, 215)
+        Me.ID_cittadinanzaComboBox.Name = "ID_cittadinanzaComboBox"
+        Me.ID_cittadinanzaComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_cittadinanzaComboBox.TabIndex = 17
+        Me.ID_cittadinanzaComboBox.ValueMember = "ID_cittadinanza"
+        '
+        'CittadinanzaBindingSource
+        '
+        Me.CittadinanzaBindingSource.DataMember = "cittadinanza"
+        Me.CittadinanzaBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'CittadinanzaTableAdapter
+        '
+        Me.CittadinanzaTableAdapter.ClearBeforeFill = True
+        '
+        'ID_nazionalitaLabel
+        '
+        ID_nazionalitaLabel.AutoSize = True
+        ID_nazionalitaLabel.Location = New System.Drawing.Point(79, 247)
+        ID_nazionalitaLabel.Name = "ID_nazionalitaLabel"
+        ID_nazionalitaLabel.Size = New System.Drawing.Size(74, 13)
+        ID_nazionalitaLabel.TabIndex = 17
+        ID_nazionalitaLabel.Text = "ID nazionalita:"
+        AddHandler ID_nazionalitaLabel.Click, AddressOf Me.ID_nazionalitaLabel_Click
+        '
+        'ID_nazionalitaComboBox
+        '
+        Me.ID_nazionalitaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_nazionalita", True))
+        Me.ID_nazionalitaComboBox.FormattingEnabled = True
+        Me.ID_nazionalitaComboBox.Location = New System.Drawing.Point(159, 242)
+        Me.ID_nazionalitaComboBox.Name = "ID_nazionalitaComboBox"
+        Me.ID_nazionalitaComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_nazionalitaComboBox.TabIndex = 18
         '
         'F_utente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1218, 751)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(ID_nazionalitaLabel)
+        Me.Controls.Add(Me.ID_nazionalitaComboBox)
+        Me.Controls.Add(ID_cittadinanzaLabel)
+        Me.Controls.Add(Me.ID_cittadinanzaComboBox)
+        Me.Controls.Add(ID_stato_civileLabel)
+        Me.Controls.Add(Me.ID_stato_civileComboBox)
+        Me.Controls.Add(ID_titolo_studioLabel)
+        Me.Controls.Add(Me.ID_titolo_studioComboBox)
+        Me.Controls.Add(ID_sessoLabel)
+        Me.Controls.Add(Me.ID_sessoComboBox)
         Me.Controls.Add(Data_registrazioneLabel)
         Me.Controls.Add(Me.Data_registrazioneDateTimePicker)
         Me.Controls.Add(ID_utenteLabel)
@@ -294,6 +455,9 @@ Partial Class F_utente
         Me.UtentiBindingNavigator.ResumeLayout(False)
         Me.UtentiBindingNavigator.PerformLayout()
         CType(Me.OperatoriBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TitolostudioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StatocivileBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -320,6 +484,17 @@ Partial Class F_utente
     Friend WithEvents Data_registrazioneDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents OperatoriBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OperatoriTableAdapter As Alimentis.AliDBDataSetTableAdapters.operatoriTableAdapter
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents FillBy_titoli_studioToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents FillBy_titoli_studioToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents ID_sessoComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents ID_titolo_studioComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents TitolostudioBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Titolo_studioTableAdapter As Alimentis.AliDBDataSetTableAdapters.titolo_studioTableAdapter
+    Friend WithEvents ID_stato_civileComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents StatocivileBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Stato_civileTableAdapter As Alimentis.AliDBDataSetTableAdapters.stato_civileTableAdapter
+    Friend WithEvents ID_cittadinanzaComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents CittadinanzaBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents CittadinanzaTableAdapter As Alimentis.AliDBDataSetTableAdapters.cittadinanzaTableAdapter
+    Friend WithEvents ID_nazionalitaComboBox As System.Windows.Forms.ComboBox
 End Class
