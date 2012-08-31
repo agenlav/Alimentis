@@ -30,8 +30,11 @@ Partial Class F_utente
         Dim ID_titolo_studioLabel As System.Windows.Forms.Label
         Dim ID_stato_civileLabel As System.Windows.Forms.Label
         Dim ID_cittadinanzaLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Dim ID_nazionalitaLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
+        Dim ID_comune_residenzaLabel As System.Windows.Forms.Label
+        Dim ID_dimoraLabel As System.Windows.Forms.Label
+        Dim ID_tipo_alloggioLabel As System.Windows.Forms.Label
         Me.AliDBDataSet = New Alimentis.AliDBDataSet()
         Me.UtentiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UtentiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.utentiTableAdapter()
@@ -67,6 +70,13 @@ Partial Class F_utente
         Me.CittadinanzaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CittadinanzaTableAdapter = New Alimentis.AliDBDataSetTableAdapters.cittadinanzaTableAdapter()
         Me.ID_nazionalitaComboBox = New System.Windows.Forms.ComboBox()
+        Me.PaesiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PaesiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.paesiTableAdapter()
+        Me.ID_comune_residenzaTextBox = New System.Windows.Forms.TextBox()
+        Me.ID_dimoraComboBox = New System.Windows.Forms.ComboBox()
+        Me.DimoraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DimoraTableAdapter = New Alimentis.AliDBDataSetTableAdapters.dimoraTableAdapter()
+        Me.ID_tipo_alloggioComboBox = New System.Windows.Forms.ComboBox()
         ID_centroLabel = New System.Windows.Forms.Label()
         ID_utenteLabel = New System.Windows.Forms.Label()
         Data_registrazioneLabel = New System.Windows.Forms.Label()
@@ -75,6 +85,9 @@ Partial Class F_utente
         ID_stato_civileLabel = New System.Windows.Forms.Label()
         ID_cittadinanzaLabel = New System.Windows.Forms.Label()
         ID_nazionalitaLabel = New System.Windows.Forms.Label()
+        ID_comune_residenzaLabel = New System.Windows.Forms.Label()
+        ID_dimoraLabel = New System.Windows.Forms.Label()
+        ID_tipo_alloggioLabel = New System.Windows.Forms.Label()
         CType(Me.AliDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +96,8 @@ Partial Class F_utente
         CType(Me.TitolostudioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.StatocivileBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaesiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DimoraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ID_centroLabel
@@ -142,11 +157,21 @@ Partial Class F_utente
         'ID_cittadinanzaLabel
         '
         ID_cittadinanzaLabel.AutoSize = True
-        ID_cittadinanzaLabel.Location = New System.Drawing.Point(84, 221)
+        ID_cittadinanzaLabel.Location = New System.Drawing.Point(84, 222)
         ID_cittadinanzaLabel.Name = "ID_cittadinanzaLabel"
         ID_cittadinanzaLabel.Size = New System.Drawing.Size(68, 13)
         ID_cittadinanzaLabel.TabIndex = 16
         ID_cittadinanzaLabel.Text = "Cittadinanza:"
+        '
+        'ID_nazionalitaLabel
+        '
+        ID_nazionalitaLabel.AutoSize = True
+        ID_nazionalitaLabel.Location = New System.Drawing.Point(90, 249)
+        ID_nazionalitaLabel.Name = "ID_nazionalitaLabel"
+        ID_nazionalitaLabel.Size = New System.Drawing.Size(62, 13)
+        ID_nazionalitaLabel.TabIndex = 17
+        ID_nazionalitaLabel.Text = "Nazionalità:"
+        AddHandler ID_nazionalitaLabel.Click, AddressOf Me.ID_nazionalitaLabel_Click
         '
         'AliDBDataSet
         '
@@ -165,14 +190,23 @@ Partial Class F_utente
         'TableAdapterManager
         '
         Me.TableAdapterManager.alloggioTableAdapter = Nothing
+        Me.TableAdapterManager.altri_problemiTableAdapter = Nothing
         Me.TableAdapterManager.altri_redditiTableAdapter = Nothing
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.bisogni_immigrazioneTableAdapter = Nothing
         Me.TableAdapterManager.cittadinanzaTableAdapter = Nothing
         Me.TableAdapterManager.condizione_professionaleTableAdapter = Nothing
+        Me.TableAdapterManager.detenzioneTableAdapter = Nothing
         Me.TableAdapterManager.dimoraTableAdapter = Nothing
+        Me.TableAdapterManager.dipendenzeTableAdapter = Nothing
+        Me.TableAdapterManager.handicap_disabilitaTableAdapter = Nothing
         Me.TableAdapterManager.nucleo_familiareTableAdapter = Nothing
         Me.TableAdapterManager.operatoriTableAdapter = Nothing
         Me.TableAdapterManager.paesiTableAdapter = Nothing
+        Me.TableAdapterManager.problemi_economiciTableAdapter = Nothing
+        Me.TableAdapterManager.problemi_familiariTableAdapter = Nothing
+        Me.TableAdapterManager.problemi_lavoroTableAdapter = Nothing
+        Me.TableAdapterManager.problemi_saluteTableAdapter = Nothing
         Me.TableAdapterManager.reddito_individualeTableAdapter = Nothing
         Me.TableAdapterManager.stato_civileTableAdapter = Nothing
         Me.TableAdapterManager.titolo_studioTableAdapter = Nothing
@@ -406,30 +440,105 @@ Partial Class F_utente
         '
         Me.CittadinanzaTableAdapter.ClearBeforeFill = True
         '
-        'ID_nazionalitaLabel
-        '
-        ID_nazionalitaLabel.AutoSize = True
-        ID_nazionalitaLabel.Location = New System.Drawing.Point(79, 247)
-        ID_nazionalitaLabel.Name = "ID_nazionalitaLabel"
-        ID_nazionalitaLabel.Size = New System.Drawing.Size(74, 13)
-        ID_nazionalitaLabel.TabIndex = 17
-        ID_nazionalitaLabel.Text = "ID nazionalita:"
-        AddHandler ID_nazionalitaLabel.Click, AddressOf Me.ID_nazionalitaLabel_Click
-        '
         'ID_nazionalitaComboBox
         '
         Me.ID_nazionalitaComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_nazionalita", True))
+        Me.ID_nazionalitaComboBox.DataSource = Me.PaesiBindingSource
+        Me.ID_nazionalitaComboBox.DisplayMember = "nome"
         Me.ID_nazionalitaComboBox.FormattingEnabled = True
         Me.ID_nazionalitaComboBox.Location = New System.Drawing.Point(159, 242)
         Me.ID_nazionalitaComboBox.Name = "ID_nazionalitaComboBox"
         Me.ID_nazionalitaComboBox.Size = New System.Drawing.Size(271, 21)
         Me.ID_nazionalitaComboBox.TabIndex = 18
+        Me.ID_nazionalitaComboBox.ValueMember = "ID_paese"
+        '
+        'PaesiBindingSource
+        '
+        Me.PaesiBindingSource.DataMember = "paesi"
+        Me.PaesiBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'PaesiTableAdapter
+        '
+        Me.PaesiTableAdapter.ClearBeforeFill = True
+        '
+        'ID_comune_residenzaLabel
+        '
+        ID_comune_residenzaLabel.AutoSize = True
+        ID_comune_residenzaLabel.Location = New System.Drawing.Point(43, 275)
+        ID_comune_residenzaLabel.Name = "ID_comune_residenzaLabel"
+        ID_comune_residenzaLabel.Size = New System.Drawing.Size(108, 13)
+        ID_comune_residenzaLabel.TabIndex = 18
+        ID_comune_residenzaLabel.Text = "Comune di residenza:"
+        AddHandler ID_comune_residenzaLabel.Click, AddressOf Me.ID_comune_residenzaLabel_Click
+        '
+        'ID_comune_residenzaTextBox
+        '
+        Me.ID_comune_residenzaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_comune_residenza", True))
+        Me.ID_comune_residenzaTextBox.Location = New System.Drawing.Point(159, 269)
+        Me.ID_comune_residenzaTextBox.Name = "ID_comune_residenzaTextBox"
+        Me.ID_comune_residenzaTextBox.Size = New System.Drawing.Size(271, 20)
+        Me.ID_comune_residenzaTextBox.TabIndex = 19
+        '
+        'ID_dimoraLabel
+        '
+        ID_dimoraLabel.AutoSize = True
+        ID_dimoraLabel.Location = New System.Drawing.Point(53, 300)
+        ID_dimoraLabel.Name = "ID_dimoraLabel"
+        ID_dimoraLabel.Size = New System.Drawing.Size(98, 13)
+        ID_dimoraLabel.TabIndex = 19
+        ID_dimoraLabel.Text = "Tipologia di dimora:"
+        AddHandler ID_dimoraLabel.Click, AddressOf Me.ID_dimoraLabel_Click
+        '
+        'ID_dimoraComboBox
+        '
+        Me.ID_dimoraComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_dimora", True))
+        Me.ID_dimoraComboBox.DataSource = Me.DimoraBindingSource
+        Me.ID_dimoraComboBox.DisplayMember = "descrizione"
+        Me.ID_dimoraComboBox.FormattingEnabled = True
+        Me.ID_dimoraComboBox.Location = New System.Drawing.Point(159, 295)
+        Me.ID_dimoraComboBox.Name = "ID_dimoraComboBox"
+        Me.ID_dimoraComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_dimoraComboBox.TabIndex = 20
+        Me.ID_dimoraComboBox.ValueMember = "ID_dimora"
+        '
+        'DimoraBindingSource
+        '
+        Me.DimoraBindingSource.DataMember = "dimora"
+        Me.DimoraBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'DimoraTableAdapter
+        '
+        Me.DimoraTableAdapter.ClearBeforeFill = True
+        '
+        'ID_tipo_alloggioLabel
+        '
+        ID_tipo_alloggioLabel.AutoSize = True
+        ID_tipo_alloggioLabel.Location = New System.Drawing.Point(51, 328)
+        ID_tipo_alloggioLabel.Name = "ID_tipo_alloggioLabel"
+        ID_tipo_alloggioLabel.Size = New System.Drawing.Size(99, 13)
+        ID_tipo_alloggioLabel.TabIndex = 21
+        ID_tipo_alloggioLabel.Text = "tipologia di alloggio:"
+        '
+        'ID_tipo_alloggioComboBox
+        '
+        Me.ID_tipo_alloggioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_tipo_alloggio", True))
+        Me.ID_tipo_alloggioComboBox.FormattingEnabled = True
+        Me.ID_tipo_alloggioComboBox.Location = New System.Drawing.Point(159, 325)
+        Me.ID_tipo_alloggioComboBox.Name = "ID_tipo_alloggioComboBox"
+        Me.ID_tipo_alloggioComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.ID_tipo_alloggioComboBox.TabIndex = 22
         '
         'F_utente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1218, 751)
+        Me.Controls.Add(ID_tipo_alloggioLabel)
+        Me.Controls.Add(Me.ID_tipo_alloggioComboBox)
+        Me.Controls.Add(ID_dimoraLabel)
+        Me.Controls.Add(Me.ID_dimoraComboBox)
+        Me.Controls.Add(ID_comune_residenzaLabel)
+        Me.Controls.Add(Me.ID_comune_residenzaTextBox)
         Me.Controls.Add(ID_nazionalitaLabel)
         Me.Controls.Add(Me.ID_nazionalitaComboBox)
         Me.Controls.Add(ID_cittadinanzaLabel)
@@ -458,6 +567,8 @@ Partial Class F_utente
         CType(Me.TitolostudioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StatocivileBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaesiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DimoraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -497,4 +608,11 @@ Partial Class F_utente
     Friend WithEvents CittadinanzaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents CittadinanzaTableAdapter As Alimentis.AliDBDataSetTableAdapters.cittadinanzaTableAdapter
     Friend WithEvents ID_nazionalitaComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents PaesiBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents PaesiTableAdapter As Alimentis.AliDBDataSetTableAdapters.paesiTableAdapter
+    Friend WithEvents ID_comune_residenzaTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ID_dimoraComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents DimoraBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents DimoraTableAdapter As Alimentis.AliDBDataSetTableAdapters.dimoraTableAdapter
+    Friend WithEvents ID_tipo_alloggioComboBox As System.Windows.Forms.ComboBox
 End Class

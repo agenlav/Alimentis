@@ -9,6 +9,10 @@
     End Sub
 
     Private Sub F_utente_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.dimora'. È possibile spostarla o rimuoverla se necessario.
+        Me.DimoraTableAdapter.Fill(Me.AliDBDataSet.dimora)
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.paesi'. È possibile spostarla o rimuoverla se necessario.
+        Me.PaesiTableAdapter.Fill(Me.AliDBDataSet.paesi)
         'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.cittadinanza'. È possibile spostarla o rimuoverla se necessario.
         Me.CittadinanzaTableAdapter.Fill(Me.AliDBDataSet.cittadinanza)
         'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.stato_civile'. È possibile spostarla o rimuoverla se necessario.
@@ -23,6 +27,14 @@
     End Sub
 
     Private Sub ID_nazionalitaLabel_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub ID_comune_residenzaLabel_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub ID_dimoraLabel_Click(sender As System.Object, e As System.EventArgs)
 
     End Sub
 End Class
