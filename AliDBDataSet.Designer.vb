@@ -1331,6 +1331,10 @@ Partial Public Class AliDBDataSet
         
         Private columnID_altri_problemi As Global.System.Data.DataColumn
         
+        Private columnnumero_conviventi As Global.System.Data.DataColumn
+        
+        Private columnID_figli_conviventi As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1591,6 +1595,22 @@ Partial Public Class AliDBDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property numero_conviventiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnumero_conviventi
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ID_figli_conviventiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID_figli_conviventi
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1655,9 +1675,11 @@ Partial Public Class AliDBDataSet
                     ByVal ID_problemi_lavoro As Short,  _
                     ByVal ID_problemi_economici As Short,  _
                     ByVal ID_problemi_salute As Short,  _
-                    ByVal ID_altri_problemi As Short) As utentiRow
+                    ByVal ID_altri_problemi As Short,  _
+                    ByVal numero_conviventi As Short,  _
+                    ByVal ID_figli_conviventi As Integer) As utentiRow
             Dim rowutentiRow As utentiRow = CType(Me.NewRow,utentiRow)
-            Dim columnValuesArray() As Object = New Object() {ID_centro, ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_stato_civile, ID_cittadinanza, ID_nazionalita, ID_comune_residenza, ID_dimora, ID_tipo_alloggio, ID_nucleo_familiare, ID_partner, lavoro_estero, lavoro_italia, ID_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizione_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione, ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_salute, ID_altri_problemi}
+            Dim columnValuesArray() As Object = New Object() {ID_centro, ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_stato_civile, ID_cittadinanza, ID_nazionalita, ID_comune_residenza, ID_dimora, ID_tipo_alloggio, ID_nucleo_familiare, ID_partner, lavoro_estero, lavoro_italia, ID_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizione_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione, ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_salute, ID_altri_problemi, numero_conviventi, ID_figli_conviventi}
             rowutentiRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowutentiRow)
             Return rowutentiRow
@@ -1714,6 +1736,8 @@ Partial Public Class AliDBDataSet
             Me.columnID_problemi_economici = MyBase.Columns("ID_problemi_economici")
             Me.columnID_problemi_salute = MyBase.Columns("ID_problemi_salute")
             Me.columnID_altri_problemi = MyBase.Columns("ID_altri_problemi")
+            Me.columnnumero_conviventi = MyBase.Columns("numero_conviventi")
+            Me.columnID_figli_conviventi = MyBase.Columns("ID_figli_conviventi")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1775,6 +1799,10 @@ Partial Public Class AliDBDataSet
             MyBase.Columns.Add(Me.columnID_problemi_salute)
             Me.columnID_altri_problemi = New Global.System.Data.DataColumn("ID_altri_problemi", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_altri_problemi)
+            Me.columnnumero_conviventi = New Global.System.Data.DataColumn("numero_conviventi", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnumero_conviventi)
+            Me.columnID_figli_conviventi = New Global.System.Data.DataColumn("ID_figli_conviventi", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_figli_conviventi)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID_utente}, true))
             Me.columnID_utente.AllowDBNull = false
             Me.columnID_utente.Unique = true
@@ -7709,6 +7737,36 @@ Partial Public Class AliDBDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property numero_conviventi() As Short
+            Get
+                Try 
+                    Return CType(Me(Me.tableutenti.numero_conviventiColumn),Short)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Il valore della colonna 'numero_conviventi' nella tabella 'utenti' è DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableutenti.numero_conviventiColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ID_figli_conviventi() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableutenti.ID_figli_conviventiColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("Il valore della colonna 'ID_figli_conviventi' nella tabella 'utenti' è DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableutenti.ID_figli_conviventiColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsID_centroNull() As Boolean
             Return Me.IsNull(Me.tableutenti.ID_centroColumn)
         End Function
@@ -8029,6 +8087,30 @@ Partial Public Class AliDBDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetID_altri_problemiNull()
             Me(Me.tableutenti.ID_altri_problemiColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isnumero_conviventiNull() As Boolean
+            Return Me.IsNull(Me.tableutenti.numero_conviventiColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setnumero_conviventiNull()
+            Me(Me.tableutenti.numero_conviventiColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsID_figli_conviventiNull() As Boolean
+            Return Me.IsNull(Me.tableutenti.ID_figli_conviventiColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetID_figli_conviventiNull()
+            Me(Me.tableutenti.ID_figli_conviventiColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -10321,6 +10403,8 @@ Namespace AliDBDataSetTableAdapters
             tableMapping.ColumnMappings.Add("ID_problemi_economici", "ID_problemi_economici")
             tableMapping.ColumnMappings.Add("ID_problemi_salute", "ID_problemi_salute")
             tableMapping.ColumnMappings.Add("ID_altri_problemi", "ID_altri_problemi")
+            tableMapping.ColumnMappings.Add("numero_conviventi", "numero_conviventi")
+            tableMapping.ColumnMappings.Add("ID_figli_conviventi", "ID_figli_conviventi")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -10349,7 +10433,9 @@ Namespace AliDBDataSetTableAdapters
                 " (`ID_problemi_lavoro` = ?)) AND ((? = 1 AND `ID_problemi_economici` IS NULL) OR"& _ 
                 " (`ID_problemi_economici` = ?)) AND ((? = 1 AND `ID_problemi_salute` IS NULL) OR"& _ 
                 " (`ID_problemi_salute` = ?)) AND ((? = 1 AND `ID_altri_problemi` IS NULL) OR (`I"& _ 
-                "D_altri_problemi` = ?)))"
+                "D_altri_problemi` = ?)) AND ((? = 1 AND `numero_conviventi` IS NULL) OR (`numero"& _ 
+                "_conviventi` = ?)) AND ((? = 1 AND `ID_figli_conviventi` IS NULL) OR (`ID_figli_"& _ 
+                "conviventi` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -10406,6 +10492,10 @@ Namespace AliDBDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_altri_problemi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_numero_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_numero_conviventi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `utenti` (`ID_centro`, `ID_utente`, `data_registrazione`, `ID_sesso`,"& _ 
@@ -10415,8 +10505,8 @@ Namespace AliDBDataSetTableAdapters
                 "edditto_mensile`, `ID_altro_redditto`, `ID_condizione_giuridica`, `ID_dipendenza"& _ 
                 "`, `ID_problemi_familiari`, `ID_disabilita`, `ID_migrazione`, `ID_problemi_istru"& _ 
                 "zione`, `ID_problemi_lavoro`, `ID_problemi_economici`, `ID_problemi_salute`, `ID"& _ 
-                "_altri_problemi`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "& _ 
-                "?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "_altri_problemi`, `numero_conviventi`, `ID_figli_conviventi`) VALUES (?, ?, ?, ?"& _ 
+                ", ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -10446,6 +10536,8 @@ Namespace AliDBDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_economici", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("numero_conviventi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `utenti` SET `ID_centro` = ?, `ID_utente` = ?, `data_registrazione` = ?, `"& _ 
@@ -10456,32 +10548,35 @@ Namespace AliDBDataSetTableAdapters
                 " ?, `ID_altro_redditto` = ?, `ID_condizione_giuridica` = ?, `ID_dipendenza` = ?,"& _ 
                 " `ID_problemi_familiari` = ?, `ID_disabilita` = ?, `ID_migrazione` = ?, `ID_prob"& _ 
                 "lemi_istruzione` = ?, `ID_problemi_lavoro` = ?, `ID_problemi_economici` = ?, `ID"& _ 
-                "_problemi_salute` = ?, `ID_altri_problemi` = ? WHERE (((? = 1 AND `ID_centro` IS"& _ 
-                " NULL) OR (`ID_centro` = ?)) AND (`ID_utente` = ?) AND ((? = 1 AND `data_registr"& _ 
-                "azione` IS NULL) OR (`data_registrazione` = ?)) AND ((? = 1 AND `ID_sesso` IS NU"& _ 
-                "LL) OR (`ID_sesso` = ?)) AND ((? = 1 AND `ID_titolo_studio` IS NULL) OR (`ID_tit"& _ 
-                "olo_studio` = ?)) AND ((? = 1 AND `ID_stato_civile` IS NULL) OR (`ID_stato_civil"& _ 
-                "e` = ?)) AND ((? = 1 AND `ID_cittadinanza` IS NULL) OR (`ID_cittadinanza` = ?)) "& _ 
-                "AND ((? = 1 AND `ID_nazionalita` IS NULL) OR (`ID_nazionalita` = ?)) AND ((? = 1"& _ 
-                " AND `ID_comune_residenza` IS NULL) OR (`ID_comune_residenza` = ?)) AND ((? = 1 "& _ 
-                "AND `ID_dimora` IS NULL) OR (`ID_dimora` = ?)) AND ((? = 1 AND `ID_tipo_alloggio"& _ 
-                "` IS NULL) OR (`ID_tipo_alloggio` = ?)) AND ((? = 1 AND `ID_nucleo_familiare` IS"& _ 
-                " NULL) OR (`ID_nucleo_familiare` = ?)) AND ((? = 1 AND `ID_partner` IS NULL) OR "& _ 
-                "(`ID_partner` = ?)) AND ((? = 1 AND `lavoro_estero` IS NULL) OR (`lavoro_estero`"& _ 
-                " = ?)) AND ((? = 1 AND `lavoro_italia` IS NULL) OR (`lavoro_italia` = ?)) AND (("& _ 
-                "? = 1 AND `ID_condizione_professionale` IS NULL) OR (`ID_condizione_professional"& _ 
-                "e` = ?)) AND ((? = 1 AND `ID_redditto_mensile` IS NULL) OR (`ID_redditto_mensile"& _ 
-                "` = ?)) AND ((? = 1 AND `ID_altro_redditto` IS NULL) OR (`ID_altro_redditto` = ?"& _ 
-                ")) AND ((? = 1 AND `ID_condizione_giuridica` IS NULL) OR (`ID_condizione_giuridi"& _ 
-                "ca` = ?)) AND ((? = 1 AND `ID_dipendenza` IS NULL) OR (`ID_dipendenza` = ?)) AND"& _ 
-                " ((? = 1 AND `ID_problemi_familiari` IS NULL) OR (`ID_problemi_familiari` = ?)) "& _ 
-                "AND ((? = 1 AND `ID_disabilita` IS NULL) OR (`ID_disabilita` = ?)) AND ((? = 1 A"& _ 
-                "ND `ID_migrazione` IS NULL) OR (`ID_migrazione` = ?)) AND ((? = 1 AND `ID_proble"& _ 
-                "mi_istruzione` IS NULL) OR (`ID_problemi_istruzione` = ?)) AND ((? = 1 AND `ID_p"& _ 
-                "roblemi_lavoro` IS NULL) OR (`ID_problemi_lavoro` = ?)) AND ((? = 1 AND `ID_prob"& _ 
-                "lemi_economici` IS NULL) OR (`ID_problemi_economici` = ?)) AND ((? = 1 AND `ID_p"& _ 
-                "roblemi_salute` IS NULL) OR (`ID_problemi_salute` = ?)) AND ((? = 1 AND `ID_altr"& _ 
-                "i_problemi` IS NULL) OR (`ID_altri_problemi` = ?)))"
+                "_problemi_salute` = ?, `ID_altri_problemi` = ?, `numero_conviventi` = ?, `ID_fig"& _ 
+                "li_conviventi` = ? WHERE (((? = 1 AND `ID_centro` IS NULL) OR (`ID_centro` = ?))"& _ 
+                " AND (`ID_utente` = ?) AND ((? = 1 AND `data_registrazione` IS NULL) OR (`data_r"& _ 
+                "egistrazione` = ?)) AND ((? = 1 AND `ID_sesso` IS NULL) OR (`ID_sesso` = ?)) AND"& _ 
+                " ((? = 1 AND `ID_titolo_studio` IS NULL) OR (`ID_titolo_studio` = ?)) AND ((? = "& _ 
+                "1 AND `ID_stato_civile` IS NULL) OR (`ID_stato_civile` = ?)) AND ((? = 1 AND `ID"& _ 
+                "_cittadinanza` IS NULL) OR (`ID_cittadinanza` = ?)) AND ((? = 1 AND `ID_nazional"& _ 
+                "ita` IS NULL) OR (`ID_nazionalita` = ?)) AND ((? = 1 AND `ID_comune_residenza` I"& _ 
+                "S NULL) OR (`ID_comune_residenza` = ?)) AND ((? = 1 AND `ID_dimora` IS NULL) OR "& _ 
+                "(`ID_dimora` = ?)) AND ((? = 1 AND `ID_tipo_alloggio` IS NULL) OR (`ID_tipo_allo"& _ 
+                "ggio` = ?)) AND ((? = 1 AND `ID_nucleo_familiare` IS NULL) OR (`ID_nucleo_famili"& _ 
+                "are` = ?)) AND ((? = 1 AND `ID_partner` IS NULL) OR (`ID_partner` = ?)) AND ((? "& _ 
+                "= 1 AND `lavoro_estero` IS NULL) OR (`lavoro_estero` = ?)) AND ((? = 1 AND `lavo"& _ 
+                "ro_italia` IS NULL) OR (`lavoro_italia` = ?)) AND ((? = 1 AND `ID_condizione_pro"& _ 
+                "fessionale` IS NULL) OR (`ID_condizione_professionale` = ?)) AND ((? = 1 AND `ID"& _ 
+                "_redditto_mensile` IS NULL) OR (`ID_redditto_mensile` = ?)) AND ((? = 1 AND `ID_"& _ 
+                "altro_redditto` IS NULL) OR (`ID_altro_redditto` = ?)) AND ((? = 1 AND `ID_condi"& _ 
+                "zione_giuridica` IS NULL) OR (`ID_condizione_giuridica` = ?)) AND ((? = 1 AND `I"& _ 
+                "D_dipendenza` IS NULL) OR (`ID_dipendenza` = ?)) AND ((? = 1 AND `ID_problemi_fa"& _ 
+                "miliari` IS NULL) OR (`ID_problemi_familiari` = ?)) AND ((? = 1 AND `ID_disabili"& _ 
+                "ta` IS NULL) OR (`ID_disabilita` = ?)) AND ((? = 1 AND `ID_migrazione` IS NULL) "& _ 
+                "OR (`ID_migrazione` = ?)) AND ((? = 1 AND `ID_problemi_istruzione` IS NULL) OR ("& _ 
+                "`ID_problemi_istruzione` = ?)) AND ((? = 1 AND `ID_problemi_lavoro` IS NULL) OR "& _ 
+                "(`ID_problemi_lavoro` = ?)) AND ((? = 1 AND `ID_problemi_economici` IS NULL) OR "& _ 
+                "(`ID_problemi_economici` = ?)) AND ((? = 1 AND `ID_problemi_salute` IS NULL) OR "& _ 
+                "(`ID_problemi_salute` = ?)) AND ((? = 1 AND `ID_altri_problemi` IS NULL) OR (`ID"& _ 
+                "_altri_problemi` = ?)) AND ((? = 1 AND `numero_conviventi` IS NULL) OR (`numero_"& _ 
+                "conviventi` = ?)) AND ((? = 1 AND `ID_figli_conviventi` IS NULL) OR (`ID_figli_c"& _ 
+                "onviventi` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -10511,6 +10606,8 @@ Namespace AliDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_economici", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_economici", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("numero_conviventi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_centro", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_centro", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_utente", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_utente", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -10566,6 +10663,10 @@ Namespace AliDBDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_problemi_salute", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_problemi_salute", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_altri_problemi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_altri_problemi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_altri_problemi", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_numero_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_numero_conviventi", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "numero_conviventi", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID_figli_conviventi", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID_figli_conviventi", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10587,7 +10688,7 @@ Namespace AliDBDataSetTableAdapters
                 "D_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizion"& _ 
                 "e_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione,"& _ 
                 " ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_"& _ 
-                "salute, ID_altri_problemi FROM utenti"
+                "salute, ID_altri_problemi, numero_conviventi, ID_figli_conviventi FROM utenti"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -10809,7 +10910,7 @@ Namespace AliDBDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
         Public Overloads Overridable Function Delete( _
                     ByVal Original_ID_centro As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ID_utente As Integer,  _
                     ByVal Original_data_registrazione As Global.System.Nullable(Of Date),  _
                     ByVal Original_ID_sesso As String,  _
                     ByVal Original_ID_titolo_studio As Global.System.Nullable(Of Short),  _
@@ -10835,7 +10936,9 @@ Namespace AliDBDataSetTableAdapters
                     ByVal Original_ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_salute As Global.System.Nullable(Of Short),  _
-                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
+                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_figli_conviventi As Global.System.Nullable(Of Integer)) As Integer
             If (Original_ID_centro.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_centro.Value,Integer)
@@ -10843,11 +10946,7 @@ Namespace AliDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_utente.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ID_utente.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ID_utente,Integer)
             If (Original_data_registrazione.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_data_registrazione.Value,Date)
@@ -11030,6 +11129,20 @@ Namespace AliDBDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(53).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(54).Value = Global.System.DBNull.Value
             End If
+            If (Original_numero_conviventi.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = CType(Original_numero_conviventi.Value,Short)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(56).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_figli_conviventi.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = CType(Original_ID_figli_conviventi.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(57).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(58).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11051,7 +11164,7 @@ Namespace AliDBDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
         Public Overloads Overridable Function Insert( _
                     ByVal ID_centro As Global.System.Nullable(Of Integer),  _
-                    ByVal ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal ID_utente As Integer,  _
                     ByVal data_registrazione As Global.System.Nullable(Of Date),  _
                     ByVal ID_sesso As String,  _
                     ByVal ID_titolo_studio As Global.System.Nullable(Of Short),  _
@@ -11077,17 +11190,15 @@ Namespace AliDBDataSetTableAdapters
                     ByVal ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
                     ByVal ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal ID_problemi_salute As Global.System.Nullable(Of Short),  _
-                    ByVal ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
+                    ByVal ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal ID_figli_conviventi As Global.System.Nullable(Of Integer)) As Integer
             If (ID_centro.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID_centro.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (ID_utente.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_utente.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_utente,Integer)
             If (data_registrazione.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(data_registrazione.Value,Date)
             Else
@@ -11218,6 +11329,16 @@ Namespace AliDBDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
+            If (numero_conviventi.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(28).Value = CType(numero_conviventi.Value,Short)
+            Else
+                Me.Adapter.InsertCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (ID_figli_conviventi.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(ID_figli_conviventi.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11239,7 +11360,7 @@ Namespace AliDBDataSetTableAdapters
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
         Public Overloads Overridable Function Update( _
                     ByVal ID_centro As Global.System.Nullable(Of Integer),  _
-                    ByVal ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal ID_utente As Integer,  _
                     ByVal data_registrazione As Global.System.Nullable(Of Date),  _
                     ByVal ID_sesso As String,  _
                     ByVal ID_titolo_studio As Global.System.Nullable(Of Short),  _
@@ -11266,8 +11387,10 @@ Namespace AliDBDataSetTableAdapters
                     ByVal ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal ID_problemi_salute As Global.System.Nullable(Of Short),  _
                     ByVal ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal ID_figli_conviventi As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ID_centro As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ID_utente As Integer,  _
                     ByVal Original_data_registrazione As Global.System.Nullable(Of Date),  _
                     ByVal Original_ID_sesso As String,  _
                     ByVal Original_ID_titolo_studio As Global.System.Nullable(Of Short),  _
@@ -11293,17 +11416,15 @@ Namespace AliDBDataSetTableAdapters
                     ByVal Original_ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_salute As Global.System.Nullable(Of Short),  _
-                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
+                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_figli_conviventi As Global.System.Nullable(Of Integer)) As Integer
             If (ID_centro.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID_centro.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (ID_utente.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_utente.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_utente,Integer)
             If (data_registrazione.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(data_registrazione.Value,Date)
             Else
@@ -11434,199 +11555,219 @@ Namespace AliDBDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_centro.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_ID_centro.Value,Integer)
+            If (numero_conviventi.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(numero_conviventi.Value,Short)
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            End If
+            If (ID_figli_conviventi.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(ID_figli_conviventi.Value,Integer)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_utente.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_ID_utente.Value,Integer)
+            If (Original_ID_centro.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_ID_centro.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_ID_utente,Integer)
             If (Original_data_registrazione.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_data_registrazione.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_data_registrazione.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ID_sesso Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_ID_sesso,String)
             End If
-            If (Original_ID_titolo_studio.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_ID_titolo_studio.Value,Short)
-            Else
+            If (Original_ID_sesso Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_ID_sesso,String)
             End If
-            If (Original_ID_stato_civile.HasValue = true) Then
+            If (Original_ID_titolo_studio.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_ID_stato_civile.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_ID_titolo_studio.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_cittadinanza.HasValue = true) Then
+            If (Original_ID_stato_civile.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_ID_cittadinanza.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_ID_stato_civile.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_nazionalita.HasValue = true) Then
+            If (Original_ID_cittadinanza.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_ID_nazionalita.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_ID_cittadinanza.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_comune_residenza Is Nothing) Then
+            If (Original_ID_nazionalita.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_ID_nazionalita.Value,Short)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_ID_comune_residenza,String)
             End If
-            If (Original_ID_dimora.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_ID_dimora.Value,Short)
-            Else
+            If (Original_ID_comune_residenza Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_ID_comune_residenza,String)
             End If
-            If (Original_ID_tipo_alloggio.HasValue = true) Then
+            If (Original_ID_dimora.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_ID_tipo_alloggio.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_ID_dimora.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_nucleo_familiare.HasValue = true) Then
+            If (Original_ID_tipo_alloggio.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_ID_nucleo_familiare.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_ID_tipo_alloggio.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_partner.HasValue = true) Then
+            If (Original_ID_nucleo_familiare.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_ID_partner.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_ID_nucleo_familiare.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
             End If
-            If (Original_lavoro_estero Is Nothing) Then
+            If (Original_ID_partner.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_ID_partner.Value,Short)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_lavoro_estero,String)
             End If
-            If (Original_lavoro_italia Is Nothing) Then
+            If (Original_lavoro_estero Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_lavoro_italia,String)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_lavoro_estero,String)
             End If
-            If (Original_ID_condizione_professionale.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_ID_condizione_professionale.Value,Short)
-            Else
+            If (Original_lavoro_italia Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(57).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(58).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(Original_lavoro_italia,String)
             End If
-            If (Original_ID_redditto_mensile.HasValue = true) Then
+            If (Original_ID_condizione_professionale.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(59).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ID_redditto_mensile.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(Original_ID_condizione_professionale.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(59).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(60).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_altro_redditto.HasValue = true) Then
+            If (Original_ID_redditto_mensile.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(61).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ID_altro_redditto.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(Original_ID_redditto_mensile.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(61).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(62).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_condizione_giuridica.HasValue = true) Then
+            If (Original_ID_altro_redditto.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(63).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ID_condizione_giuridica.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_ID_altro_redditto.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(63).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(64).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_dipendenza.HasValue = true) Then
+            If (Original_ID_condizione_giuridica.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_ID_dipendenza.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_ID_condizione_giuridica.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(65).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(66).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_problemi_familiari.HasValue = true) Then
+            If (Original_ID_dipendenza.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(67).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_ID_problemi_familiari.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(68).Value = CType(Original_ID_dipendenza.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(67).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(68).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_disabilita.HasValue = true) Then
+            If (Original_ID_problemi_familiari.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_ID_disabilita.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(70).Value = CType(Original_ID_problemi_familiari.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(69).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(70).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_migrazione.HasValue = true) Then
+            If (Original_ID_disabilita.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_ID_migrazione.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(72).Value = CType(Original_ID_disabilita.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(71).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(72).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_problemi_istruzione.HasValue = true) Then
+            If (Original_ID_migrazione.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(73).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_ID_problemi_istruzione.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(74).Value = CType(Original_ID_migrazione.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(73).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(74).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_problemi_lavoro.HasValue = true) Then
+            If (Original_ID_problemi_istruzione.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(75).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_ID_problemi_lavoro.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(76).Value = CType(Original_ID_problemi_istruzione.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(75).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(76).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_problemi_economici.HasValue = true) Then
+            If (Original_ID_problemi_lavoro.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(77).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_ID_problemi_economici.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(78).Value = CType(Original_ID_problemi_lavoro.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(77).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(78).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_problemi_salute.HasValue = true) Then
+            If (Original_ID_problemi_economici.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(79).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_ID_problemi_salute.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(80).Value = CType(Original_ID_problemi_economici.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(79).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(80).Value = Global.System.DBNull.Value
             End If
-            If (Original_ID_altri_problemi.HasValue = true) Then
+            If (Original_ID_problemi_salute.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(81).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_ID_altri_problemi.Value,Short)
+                Me.Adapter.UpdateCommand.Parameters(82).Value = CType(Original_ID_problemi_salute.Value,Short)
             Else
                 Me.Adapter.UpdateCommand.Parameters(81).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(82).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_altri_problemi.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = CType(Original_ID_altri_problemi.Value,Short)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(83).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(84).Value = Global.System.DBNull.Value
+            End If
+            If (Original_numero_conviventi.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = CType(Original_numero_conviventi.Value,Short)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(85).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(86).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ID_figli_conviventi.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = CType(Original_ID_figli_conviventi.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(87).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(88).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -11675,8 +11816,10 @@ Namespace AliDBDataSetTableAdapters
                     ByVal ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal ID_problemi_salute As Global.System.Nullable(Of Short),  _
                     ByVal ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal ID_figli_conviventi As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ID_centro As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ID_utente As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ID_utente As Integer,  _
                     ByVal Original_data_registrazione As Global.System.Nullable(Of Date),  _
                     ByVal Original_ID_sesso As String,  _
                     ByVal Original_ID_titolo_studio As Global.System.Nullable(Of Short),  _
@@ -11702,8 +11845,10 @@ Namespace AliDBDataSetTableAdapters
                     ByVal Original_ID_problemi_lavoro As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_economici As Global.System.Nullable(Of Short),  _
                     ByVal Original_ID_problemi_salute As Global.System.Nullable(Of Short),  _
-                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short)) As Integer
-            Return Me.Update(ID_centro, Original_ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_stato_civile, ID_cittadinanza, ID_nazionalita, ID_comune_residenza, ID_dimora, ID_tipo_alloggio, ID_nucleo_familiare, ID_partner, lavoro_estero, lavoro_italia, ID_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizione_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione, ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_salute, ID_altri_problemi, Original_ID_centro, Original_ID_utente, Original_data_registrazione, Original_ID_sesso, Original_ID_titolo_studio, Original_ID_stato_civile, Original_ID_cittadinanza, Original_ID_nazionalita, Original_ID_comune_residenza, Original_ID_dimora, Original_ID_tipo_alloggio, Original_ID_nucleo_familiare, Original_ID_partner, Original_lavoro_estero, Original_lavoro_italia, Original_ID_condizione_professionale, Original_ID_redditto_mensile, Original_ID_altro_redditto, Original_ID_condizione_giuridica, Original_ID_dipendenza, Original_ID_problemi_familiari, Original_ID_disabilita, Original_ID_migrazione, Original_ID_problemi_istruzione, Original_ID_problemi_lavoro, Original_ID_problemi_economici, Original_ID_problemi_salute, Original_ID_altri_problemi)
+                    ByVal Original_ID_altri_problemi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_numero_conviventi As Global.System.Nullable(Of Short),  _
+                    ByVal Original_ID_figli_conviventi As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(ID_centro, Original_ID_utente, data_registrazione, ID_sesso, ID_titolo_studio, ID_stato_civile, ID_cittadinanza, ID_nazionalita, ID_comune_residenza, ID_dimora, ID_tipo_alloggio, ID_nucleo_familiare, ID_partner, lavoro_estero, lavoro_italia, ID_condizione_professionale, ID_redditto_mensile, ID_altro_redditto, ID_condizione_giuridica, ID_dipendenza, ID_problemi_familiari, ID_disabilita, ID_migrazione, ID_problemi_istruzione, ID_problemi_lavoro, ID_problemi_economici, ID_problemi_salute, ID_altri_problemi, numero_conviventi, ID_figli_conviventi, Original_ID_centro, Original_ID_utente, Original_data_registrazione, Original_ID_sesso, Original_ID_titolo_studio, Original_ID_stato_civile, Original_ID_cittadinanza, Original_ID_nazionalita, Original_ID_comune_residenza, Original_ID_dimora, Original_ID_tipo_alloggio, Original_ID_nucleo_familiare, Original_ID_partner, Original_lavoro_estero, Original_lavoro_italia, Original_ID_condizione_professionale, Original_ID_redditto_mensile, Original_ID_altro_redditto, Original_ID_condizione_giuridica, Original_ID_dipendenza, Original_ID_problemi_familiari, Original_ID_disabilita, Original_ID_migrazione, Original_ID_problemi_istruzione, Original_ID_problemi_lavoro, Original_ID_problemi_economici, Original_ID_problemi_salute, Original_ID_altri_problemi, Original_numero_conviventi, Original_ID_figli_conviventi)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

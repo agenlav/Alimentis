@@ -9,6 +9,16 @@
     End Sub
 
     Private Sub F_utente_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.altri_redditi'. È possibile spostarla o rimuoverla se necessario.
+        Me.Altri_redditiTableAdapter.Fill(Me.AliDBDataSet.altri_redditi)
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.reddito_individuale'. È possibile spostarla o rimuoverla se necessario.
+        Me.Reddito_individualeTableAdapter.Fill(Me.AliDBDataSet.reddito_individuale)
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.condizione_professionale'. È possibile spostarla o rimuoverla se necessario.
+        Me.Condizione_professionaleTableAdapter.Fill(Me.AliDBDataSet.condizione_professionale)
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.nucleo_familiare'. È possibile spostarla o rimuoverla se necessario.
+        Me.Nucleo_familiareTableAdapter.Fill(Me.AliDBDataSet.nucleo_familiare)
+        'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.alloggio'. È possibile spostarla o rimuoverla se necessario.
+        Me.AlloggioTableAdapter.Fill(Me.AliDBDataSet.alloggio)
         'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.dimora'. È possibile spostarla o rimuoverla se necessario.
         Me.DimoraTableAdapter.Fill(Me.AliDBDataSet.dimora)
         'TODO: questa riga di codice carica i dati nella tabella 'AliDBDataSet.paesi'. È possibile spostarla o rimuoverla se necessario.
@@ -35,6 +45,14 @@
     End Sub
 
     Private Sub ID_dimoraLabel_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub ID_partnerLabel_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Lavoro_esteroLabel_Click(sender As System.Object, e As System.EventArgs)
 
     End Sub
 End Class

@@ -31,10 +31,19 @@ Partial Class F_utente
         Dim ID_stato_civileLabel As System.Windows.Forms.Label
         Dim ID_cittadinanzaLabel As System.Windows.Forms.Label
         Dim ID_nazionalitaLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Dim ID_comune_residenzaLabel As System.Windows.Forms.Label
         Dim ID_dimoraLabel As System.Windows.Forms.Label
         Dim ID_tipo_alloggioLabel As System.Windows.Forms.Label
+        Dim ID_nucleo_familiareLabel As System.Windows.Forms.Label
+        Dim Numero_conviventiLabel As System.Windows.Forms.Label
+        Dim ID_partnerLabel As System.Windows.Forms.Label
+        Dim ID_figli_conviventiLabel As System.Windows.Forms.Label
+        Dim Lavoro_esteroLabel As System.Windows.Forms.Label
+        Dim Lavoro_italiaLabel As System.Windows.Forms.Label
+        Dim ID_condizione_professionaleLabel As System.Windows.Forms.Label
+        Dim ID_redditto_mensileLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
+        Dim ID_altro_reddittoLabel As System.Windows.Forms.Label
         Me.AliDBDataSet = New Alimentis.AliDBDataSet()
         Me.UtentiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UtentiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.utentiTableAdapter()
@@ -77,6 +86,26 @@ Partial Class F_utente
         Me.DimoraBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DimoraTableAdapter = New Alimentis.AliDBDataSetTableAdapters.dimoraTableAdapter()
         Me.ID_tipo_alloggioComboBox = New System.Windows.Forms.ComboBox()
+        Me.AlloggioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AlloggioTableAdapter = New Alimentis.AliDBDataSetTableAdapters.alloggioTableAdapter()
+        Me.ID_nucleo_familiareComboBox = New System.Windows.Forms.ComboBox()
+        Me.NucleofamiliareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Nucleo_familiareTableAdapter = New Alimentis.AliDBDataSetTableAdapters.nucleo_familiareTableAdapter()
+        Me.Numero_conviventiTextBox = New System.Windows.Forms.TextBox()
+        Me.ID_partnerComboBox = New System.Windows.Forms.ComboBox()
+        Me.ID_figli_conviventiComboBox = New System.Windows.Forms.ComboBox()
+        Me.Lavoro_esteroTextBox = New System.Windows.Forms.TextBox()
+        Me.Lavoro_italiaTextBox = New System.Windows.Forms.TextBox()
+        Me.ID_condizione_professionaleComboBox = New System.Windows.Forms.ComboBox()
+        Me.CondizioneprofessionaleBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Condizione_professionaleTableAdapter = New Alimentis.AliDBDataSetTableAdapters.condizione_professionaleTableAdapter()
+        Me.ID_redditto_mensileComboBox = New System.Windows.Forms.ComboBox()
+        Me.RedditoindividualeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Reddito_individualeTableAdapter = New Alimentis.AliDBDataSetTableAdapters.reddito_individualeTableAdapter()
+        Me.ID_altro_reddittoComboBox = New System.Windows.Forms.ComboBox()
+        Me.AliDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AltriredditiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Altri_redditiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.altri_redditiTableAdapter()
         ID_centroLabel = New System.Windows.Forms.Label()
         ID_utenteLabel = New System.Windows.Forms.Label()
         Data_registrazioneLabel = New System.Windows.Forms.Label()
@@ -88,6 +117,15 @@ Partial Class F_utente
         ID_comune_residenzaLabel = New System.Windows.Forms.Label()
         ID_dimoraLabel = New System.Windows.Forms.Label()
         ID_tipo_alloggioLabel = New System.Windows.Forms.Label()
+        ID_nucleo_familiareLabel = New System.Windows.Forms.Label()
+        Numero_conviventiLabel = New System.Windows.Forms.Label()
+        ID_partnerLabel = New System.Windows.Forms.Label()
+        ID_figli_conviventiLabel = New System.Windows.Forms.Label()
+        Lavoro_esteroLabel = New System.Windows.Forms.Label()
+        Lavoro_italiaLabel = New System.Windows.Forms.Label()
+        ID_condizione_professionaleLabel = New System.Windows.Forms.Label()
+        ID_redditto_mensileLabel = New System.Windows.Forms.Label()
+        ID_altro_reddittoLabel = New System.Windows.Forms.Label()
         CType(Me.AliDBDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UtentiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +136,12 @@ Partial Class F_utente
         CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaesiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DimoraBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AlloggioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NucleofamiliareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CondizioneprofessionaleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RedditoindividualeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AltriredditiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ID_centroLabel
@@ -130,7 +174,7 @@ Partial Class F_utente
         'ID_sessoLabel
         '
         ID_sessoLabel.AutoSize = True
-        ID_sessoLabel.Location = New System.Drawing.Point(108, 140)
+        ID_sessoLabel.Location = New System.Drawing.Point(14, 123)
         ID_sessoLabel.Name = "ID_sessoLabel"
         ID_sessoLabel.Size = New System.Drawing.Size(45, 13)
         ID_sessoLabel.TabIndex = 13
@@ -139,7 +183,7 @@ Partial Class F_utente
         'ID_titolo_studioLabel
         '
         ID_titolo_studioLabel.AutoSize = True
-        ID_titolo_studioLabel.Location = New System.Drawing.Point(86, 167)
+        ID_titolo_studioLabel.Location = New System.Drawing.Point(14, 171)
         ID_titolo_studioLabel.Name = "ID_titolo_studioLabel"
         ID_titolo_studioLabel.Size = New System.Drawing.Size(67, 13)
         ID_titolo_studioLabel.TabIndex = 14
@@ -148,7 +192,7 @@ Partial Class F_utente
         'ID_stato_civileLabel
         '
         ID_stato_civileLabel.AutoSize = True
-        ID_stato_civileLabel.Location = New System.Drawing.Point(91, 194)
+        ID_stato_civileLabel.Location = New System.Drawing.Point(16, 218)
         ID_stato_civileLabel.Name = "ID_stato_civileLabel"
         ID_stato_civileLabel.Size = New System.Drawing.Size(62, 13)
         ID_stato_civileLabel.TabIndex = 15
@@ -157,7 +201,7 @@ Partial Class F_utente
         'ID_cittadinanzaLabel
         '
         ID_cittadinanzaLabel.AutoSize = True
-        ID_cittadinanzaLabel.Location = New System.Drawing.Point(84, 222)
+        ID_cittadinanzaLabel.Location = New System.Drawing.Point(16, 271)
         ID_cittadinanzaLabel.Name = "ID_cittadinanzaLabel"
         ID_cittadinanzaLabel.Size = New System.Drawing.Size(68, 13)
         ID_cittadinanzaLabel.TabIndex = 16
@@ -166,12 +210,114 @@ Partial Class F_utente
         'ID_nazionalitaLabel
         '
         ID_nazionalitaLabel.AutoSize = True
-        ID_nazionalitaLabel.Location = New System.Drawing.Point(90, 249)
+        ID_nazionalitaLabel.Location = New System.Drawing.Point(16, 318)
         ID_nazionalitaLabel.Name = "ID_nazionalitaLabel"
         ID_nazionalitaLabel.Size = New System.Drawing.Size(62, 13)
         ID_nazionalitaLabel.TabIndex = 17
         ID_nazionalitaLabel.Text = "Nazionalità:"
         AddHandler ID_nazionalitaLabel.Click, AddressOf Me.ID_nazionalitaLabel_Click
+        '
+        'ID_comune_residenzaLabel
+        '
+        ID_comune_residenzaLabel.AutoSize = True
+        ID_comune_residenzaLabel.Location = New System.Drawing.Point(16, 367)
+        ID_comune_residenzaLabel.Name = "ID_comune_residenzaLabel"
+        ID_comune_residenzaLabel.Size = New System.Drawing.Size(108, 13)
+        ID_comune_residenzaLabel.TabIndex = 18
+        ID_comune_residenzaLabel.Text = "Comune di residenza:"
+        AddHandler ID_comune_residenzaLabel.Click, AddressOf Me.ID_comune_residenzaLabel_Click
+        '
+        'ID_dimoraLabel
+        '
+        ID_dimoraLabel.AutoSize = True
+        ID_dimoraLabel.Location = New System.Drawing.Point(16, 417)
+        ID_dimoraLabel.Name = "ID_dimoraLabel"
+        ID_dimoraLabel.Size = New System.Drawing.Size(98, 13)
+        ID_dimoraLabel.TabIndex = 19
+        ID_dimoraLabel.Text = "Tipologia di dimora:"
+        AddHandler ID_dimoraLabel.Click, AddressOf Me.ID_dimoraLabel_Click
+        '
+        'ID_tipo_alloggioLabel
+        '
+        ID_tipo_alloggioLabel.AutoSize = True
+        ID_tipo_alloggioLabel.Location = New System.Drawing.Point(14, 468)
+        ID_tipo_alloggioLabel.Name = "ID_tipo_alloggioLabel"
+        ID_tipo_alloggioLabel.Size = New System.Drawing.Size(103, 13)
+        ID_tipo_alloggioLabel.TabIndex = 21
+        ID_tipo_alloggioLabel.Text = "Tipologia di alloggio:"
+        '
+        'ID_nucleo_familiareLabel
+        '
+        ID_nucleo_familiareLabel.AutoSize = True
+        ID_nucleo_familiareLabel.Location = New System.Drawing.Point(16, 519)
+        ID_nucleo_familiareLabel.Name = "ID_nucleo_familiareLabel"
+        ID_nucleo_familiareLabel.Size = New System.Drawing.Size(153, 13)
+        ID_nucleo_familiareLabel.TabIndex = 23
+        ID_nucleo_familiareLabel.Text = "Nucleo familiare (Con chi vive):"
+        '
+        'Numero_conviventiLabel
+        '
+        Numero_conviventiLabel.AutoSize = True
+        Numero_conviventiLabel.Location = New System.Drawing.Point(355, 519)
+        Numero_conviventiLabel.Name = "Numero_conviventiLabel"
+        Numero_conviventiLabel.Size = New System.Drawing.Size(99, 13)
+        Numero_conviventiLabel.TabIndex = 25
+        Numero_conviventiLabel.Text = "Numero conviventi:"
+        '
+        'ID_partnerLabel
+        '
+        ID_partnerLabel.AutoSize = True
+        ID_partnerLabel.Location = New System.Drawing.Point(16, 573)
+        ID_partnerLabel.Name = "ID_partnerLabel"
+        ID_partnerLabel.Size = New System.Drawing.Size(100, 13)
+        ID_partnerLabel.TabIndex = 27
+        ID_partnerLabel.Text = "Partner convivente:"
+        '
+        'ID_figli_conviventiLabel
+        '
+        ID_figli_conviventiLabel.AutoSize = True
+        ID_figli_conviventiLabel.Location = New System.Drawing.Point(164, 573)
+        ID_figli_conviventiLabel.Name = "ID_figli_conviventiLabel"
+        ID_figli_conviventiLabel.Size = New System.Drawing.Size(80, 13)
+        ID_figli_conviventiLabel.TabIndex = 29
+        ID_figli_conviventiLabel.Text = "Figli conviventi:"
+        '
+        'Lavoro_esteroLabel
+        '
+        Lavoro_esteroLabel.AutoSize = True
+        Lavoro_esteroLabel.Location = New System.Drawing.Point(526, 218)
+        Lavoro_esteroLabel.Name = "Lavoro_esteroLabel"
+        Lavoro_esteroLabel.Size = New System.Drawing.Size(236, 13)
+        Lavoro_esteroLabel.TabIndex = 31
+        Lavoro_esteroLabel.Text = "Lavoro svolto nella patria di origine (per stranieri):"
+        AddHandler Lavoro_esteroLabel.Click, AddressOf Me.Lavoro_esteroLabel_Click
+        '
+        'Lavoro_italiaLabel
+        '
+        Lavoro_italiaLabel.AutoSize = True
+        Lavoro_italiaLabel.Location = New System.Drawing.Point(526, 271)
+        Lavoro_italiaLabel.Name = "Lavoro_italiaLabel"
+        Lavoro_italiaLabel.Size = New System.Drawing.Size(109, 13)
+        Lavoro_italiaLabel.TabIndex = 33
+        Lavoro_italiaLabel.Text = "Lavoro svolto in italia:"
+        '
+        'ID_condizione_professionaleLabel
+        '
+        ID_condizione_professionaleLabel.AutoSize = True
+        ID_condizione_professionaleLabel.Location = New System.Drawing.Point(526, 171)
+        ID_condizione_professionaleLabel.Name = "ID_condizione_professionaleLabel"
+        ID_condizione_professionaleLabel.Size = New System.Drawing.Size(127, 13)
+        ID_condizione_professionaleLabel.TabIndex = 35
+        ID_condizione_professionaleLabel.Text = "Condizione professionale:"
+        '
+        'ID_redditto_mensileLabel
+        '
+        ID_redditto_mensileLabel.AutoSize = True
+        ID_redditto_mensileLabel.Location = New System.Drawing.Point(526, 318)
+        ID_redditto_mensileLabel.Name = "ID_redditto_mensileLabel"
+        ID_redditto_mensileLabel.Size = New System.Drawing.Size(88, 13)
+        ID_redditto_mensileLabel.TabIndex = 37
+        ID_redditto_mensileLabel.Text = "Redditto mensile:"
         '
         'AliDBDataSet
         '
@@ -372,9 +518,9 @@ Partial Class F_utente
         Me.ID_sessoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_sesso", True))
         Me.ID_sessoComboBox.FormattingEnabled = True
         Me.ID_sessoComboBox.Items.AddRange(New Object() {"M", "F"})
-        Me.ID_sessoComboBox.Location = New System.Drawing.Point(159, 134)
+        Me.ID_sessoComboBox.Location = New System.Drawing.Point(15, 142)
         Me.ID_sessoComboBox.Name = "ID_sessoComboBox"
-        Me.ID_sessoComboBox.Size = New System.Drawing.Size(52, 21)
+        Me.ID_sessoComboBox.Size = New System.Drawing.Size(61, 21)
         Me.ID_sessoComboBox.TabIndex = 14
         '
         'ID_titolo_studioComboBox
@@ -383,9 +529,9 @@ Partial Class F_utente
         Me.ID_titolo_studioComboBox.DataSource = Me.TitolostudioBindingSource
         Me.ID_titolo_studioComboBox.DisplayMember = "descrizione"
         Me.ID_titolo_studioComboBox.FormattingEnabled = True
-        Me.ID_titolo_studioComboBox.Location = New System.Drawing.Point(159, 161)
+        Me.ID_titolo_studioComboBox.Location = New System.Drawing.Point(15, 187)
         Me.ID_titolo_studioComboBox.Name = "ID_titolo_studioComboBox"
-        Me.ID_titolo_studioComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_titolo_studioComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_titolo_studioComboBox.TabIndex = 15
         Me.ID_titolo_studioComboBox.ValueMember = "ID_titolo_studio"
         '
@@ -404,9 +550,9 @@ Partial Class F_utente
         Me.ID_stato_civileComboBox.DataSource = Me.StatocivileBindingSource
         Me.ID_stato_civileComboBox.DisplayMember = "descrizione"
         Me.ID_stato_civileComboBox.FormattingEnabled = True
-        Me.ID_stato_civileComboBox.Location = New System.Drawing.Point(159, 188)
+        Me.ID_stato_civileComboBox.Location = New System.Drawing.Point(17, 234)
         Me.ID_stato_civileComboBox.Name = "ID_stato_civileComboBox"
-        Me.ID_stato_civileComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_stato_civileComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_stato_civileComboBox.TabIndex = 16
         Me.ID_stato_civileComboBox.ValueMember = "ID_stato_civile"
         '
@@ -425,9 +571,9 @@ Partial Class F_utente
         Me.ID_cittadinanzaComboBox.DataSource = Me.CittadinanzaBindingSource
         Me.ID_cittadinanzaComboBox.DisplayMember = "descrizione"
         Me.ID_cittadinanzaComboBox.FormattingEnabled = True
-        Me.ID_cittadinanzaComboBox.Location = New System.Drawing.Point(159, 215)
+        Me.ID_cittadinanzaComboBox.Location = New System.Drawing.Point(15, 287)
         Me.ID_cittadinanzaComboBox.Name = "ID_cittadinanzaComboBox"
-        Me.ID_cittadinanzaComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_cittadinanzaComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_cittadinanzaComboBox.TabIndex = 17
         Me.ID_cittadinanzaComboBox.ValueMember = "ID_cittadinanza"
         '
@@ -446,9 +592,9 @@ Partial Class F_utente
         Me.ID_nazionalitaComboBox.DataSource = Me.PaesiBindingSource
         Me.ID_nazionalitaComboBox.DisplayMember = "nome"
         Me.ID_nazionalitaComboBox.FormattingEnabled = True
-        Me.ID_nazionalitaComboBox.Location = New System.Drawing.Point(159, 242)
+        Me.ID_nazionalitaComboBox.Location = New System.Drawing.Point(17, 334)
         Me.ID_nazionalitaComboBox.Name = "ID_nazionalitaComboBox"
-        Me.ID_nazionalitaComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_nazionalitaComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_nazionalitaComboBox.TabIndex = 18
         Me.ID_nazionalitaComboBox.ValueMember = "ID_paese"
         '
@@ -461,33 +607,13 @@ Partial Class F_utente
         '
         Me.PaesiTableAdapter.ClearBeforeFill = True
         '
-        'ID_comune_residenzaLabel
-        '
-        ID_comune_residenzaLabel.AutoSize = True
-        ID_comune_residenzaLabel.Location = New System.Drawing.Point(43, 275)
-        ID_comune_residenzaLabel.Name = "ID_comune_residenzaLabel"
-        ID_comune_residenzaLabel.Size = New System.Drawing.Size(108, 13)
-        ID_comune_residenzaLabel.TabIndex = 18
-        ID_comune_residenzaLabel.Text = "Comune di residenza:"
-        AddHandler ID_comune_residenzaLabel.Click, AddressOf Me.ID_comune_residenzaLabel_Click
-        '
         'ID_comune_residenzaTextBox
         '
         Me.ID_comune_residenzaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_comune_residenza", True))
-        Me.ID_comune_residenzaTextBox.Location = New System.Drawing.Point(159, 269)
+        Me.ID_comune_residenzaTextBox.Location = New System.Drawing.Point(19, 383)
         Me.ID_comune_residenzaTextBox.Name = "ID_comune_residenzaTextBox"
-        Me.ID_comune_residenzaTextBox.Size = New System.Drawing.Size(271, 20)
+        Me.ID_comune_residenzaTextBox.Size = New System.Drawing.Size(320, 20)
         Me.ID_comune_residenzaTextBox.TabIndex = 19
-        '
-        'ID_dimoraLabel
-        '
-        ID_dimoraLabel.AutoSize = True
-        ID_dimoraLabel.Location = New System.Drawing.Point(53, 300)
-        ID_dimoraLabel.Name = "ID_dimoraLabel"
-        ID_dimoraLabel.Size = New System.Drawing.Size(98, 13)
-        ID_dimoraLabel.TabIndex = 19
-        ID_dimoraLabel.Text = "Tipologia di dimora:"
-        AddHandler ID_dimoraLabel.Click, AddressOf Me.ID_dimoraLabel_Click
         '
         'ID_dimoraComboBox
         '
@@ -495,9 +621,9 @@ Partial Class F_utente
         Me.ID_dimoraComboBox.DataSource = Me.DimoraBindingSource
         Me.ID_dimoraComboBox.DisplayMember = "descrizione"
         Me.ID_dimoraComboBox.FormattingEnabled = True
-        Me.ID_dimoraComboBox.Location = New System.Drawing.Point(159, 295)
+        Me.ID_dimoraComboBox.Location = New System.Drawing.Point(19, 433)
         Me.ID_dimoraComboBox.Name = "ID_dimoraComboBox"
-        Me.ID_dimoraComboBox.Size = New System.Drawing.Size(271, 21)
+        Me.ID_dimoraComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_dimoraComboBox.TabIndex = 20
         Me.ID_dimoraComboBox.ValueMember = "ID_dimora"
         '
@@ -510,29 +636,192 @@ Partial Class F_utente
         '
         Me.DimoraTableAdapter.ClearBeforeFill = True
         '
-        'ID_tipo_alloggioLabel
-        '
-        ID_tipo_alloggioLabel.AutoSize = True
-        ID_tipo_alloggioLabel.Location = New System.Drawing.Point(51, 328)
-        ID_tipo_alloggioLabel.Name = "ID_tipo_alloggioLabel"
-        ID_tipo_alloggioLabel.Size = New System.Drawing.Size(99, 13)
-        ID_tipo_alloggioLabel.TabIndex = 21
-        ID_tipo_alloggioLabel.Text = "tipologia di alloggio:"
-        '
         'ID_tipo_alloggioComboBox
         '
         Me.ID_tipo_alloggioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_tipo_alloggio", True))
+        Me.ID_tipo_alloggioComboBox.DataSource = Me.AlloggioBindingSource
+        Me.ID_tipo_alloggioComboBox.DisplayMember = "descrizione"
         Me.ID_tipo_alloggioComboBox.FormattingEnabled = True
-        Me.ID_tipo_alloggioComboBox.Location = New System.Drawing.Point(159, 325)
+        Me.ID_tipo_alloggioComboBox.Location = New System.Drawing.Point(19, 484)
         Me.ID_tipo_alloggioComboBox.Name = "ID_tipo_alloggioComboBox"
-        Me.ID_tipo_alloggioComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.ID_tipo_alloggioComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_tipo_alloggioComboBox.TabIndex = 22
+        Me.ID_tipo_alloggioComboBox.ValueMember = "ID_alloggio"
+        '
+        'AlloggioBindingSource
+        '
+        Me.AlloggioBindingSource.DataMember = "alloggio"
+        Me.AlloggioBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'AlloggioTableAdapter
+        '
+        Me.AlloggioTableAdapter.ClearBeforeFill = True
+        '
+        'ID_nucleo_familiareComboBox
+        '
+        Me.ID_nucleo_familiareComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_nucleo_familiare", True))
+        Me.ID_nucleo_familiareComboBox.DataSource = Me.NucleofamiliareBindingSource
+        Me.ID_nucleo_familiareComboBox.DisplayMember = "descrizione"
+        Me.ID_nucleo_familiareComboBox.FormattingEnabled = True
+        Me.ID_nucleo_familiareComboBox.Location = New System.Drawing.Point(19, 535)
+        Me.ID_nucleo_familiareComboBox.Name = "ID_nucleo_familiareComboBox"
+        Me.ID_nucleo_familiareComboBox.Size = New System.Drawing.Size(318, 21)
+        Me.ID_nucleo_familiareComboBox.TabIndex = 24
+        Me.ID_nucleo_familiareComboBox.ValueMember = "ID_nucleo_familiare"
+        '
+        'NucleofamiliareBindingSource
+        '
+        Me.NucleofamiliareBindingSource.DataMember = "nucleo_familiare"
+        Me.NucleofamiliareBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Nucleo_familiareTableAdapter
+        '
+        Me.Nucleo_familiareTableAdapter.ClearBeforeFill = True
+        '
+        'Numero_conviventiTextBox
+        '
+        Me.Numero_conviventiTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "numero_conviventi", True))
+        Me.Numero_conviventiTextBox.Location = New System.Drawing.Point(358, 536)
+        Me.Numero_conviventiTextBox.Name = "Numero_conviventiTextBox"
+        Me.Numero_conviventiTextBox.Size = New System.Drawing.Size(56, 20)
+        Me.Numero_conviventiTextBox.TabIndex = 26
+        '
+        'ID_partnerComboBox
+        '
+        Me.ID_partnerComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_partner", True))
+        Me.ID_partnerComboBox.FormattingEnabled = True
+        Me.ID_partnerComboBox.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ID_partnerComboBox.Location = New System.Drawing.Point(19, 589)
+        Me.ID_partnerComboBox.Name = "ID_partnerComboBox"
+        Me.ID_partnerComboBox.Size = New System.Drawing.Size(59, 21)
+        Me.ID_partnerComboBox.TabIndex = 28
+        '
+        'ID_figli_conviventiComboBox
+        '
+        Me.ID_figli_conviventiComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_figli_conviventi", True))
+        Me.ID_figli_conviventiComboBox.FormattingEnabled = True
+        Me.ID_figli_conviventiComboBox.Items.AddRange(New Object() {"SI", "NO"})
+        Me.ID_figli_conviventiComboBox.Location = New System.Drawing.Point(167, 589)
+        Me.ID_figli_conviventiComboBox.Name = "ID_figli_conviventiComboBox"
+        Me.ID_figli_conviventiComboBox.Size = New System.Drawing.Size(55, 21)
+        Me.ID_figli_conviventiComboBox.TabIndex = 30
+        '
+        'Lavoro_esteroTextBox
+        '
+        Me.Lavoro_esteroTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "lavoro_estero", True))
+        Me.Lavoro_esteroTextBox.Location = New System.Drawing.Point(523, 235)
+        Me.Lavoro_esteroTextBox.Name = "Lavoro_esteroTextBox"
+        Me.Lavoro_esteroTextBox.Size = New System.Drawing.Size(321, 20)
+        Me.Lavoro_esteroTextBox.TabIndex = 32
+        '
+        'Lavoro_italiaTextBox
+        '
+        Me.Lavoro_italiaTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "lavoro_italia", True))
+        Me.Lavoro_italiaTextBox.Location = New System.Drawing.Point(523, 288)
+        Me.Lavoro_italiaTextBox.Name = "Lavoro_italiaTextBox"
+        Me.Lavoro_italiaTextBox.Size = New System.Drawing.Size(321, 20)
+        Me.Lavoro_italiaTextBox.TabIndex = 34
+        '
+        'ID_condizione_professionaleComboBox
+        '
+        Me.ID_condizione_professionaleComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_condizione_professionale", True))
+        Me.ID_condizione_professionaleComboBox.DataSource = Me.CondizioneprofessionaleBindingSource
+        Me.ID_condizione_professionaleComboBox.DisplayMember = "descrizione"
+        Me.ID_condizione_professionaleComboBox.FormattingEnabled = True
+        Me.ID_condizione_professionaleComboBox.Location = New System.Drawing.Point(523, 190)
+        Me.ID_condizione_professionaleComboBox.Name = "ID_condizione_professionaleComboBox"
+        Me.ID_condizione_professionaleComboBox.Size = New System.Drawing.Size(320, 21)
+        Me.ID_condizione_professionaleComboBox.TabIndex = 36
+        Me.ID_condizione_professionaleComboBox.ValueMember = "ID_condizione_professionale"
+        '
+        'CondizioneprofessionaleBindingSource
+        '
+        Me.CondizioneprofessionaleBindingSource.DataMember = "condizione_professionale"
+        Me.CondizioneprofessionaleBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Condizione_professionaleTableAdapter
+        '
+        Me.Condizione_professionaleTableAdapter.ClearBeforeFill = True
+        '
+        'ID_redditto_mensileComboBox
+        '
+        Me.ID_redditto_mensileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_redditto_mensile", True))
+        Me.ID_redditto_mensileComboBox.DataSource = Me.RedditoindividualeBindingSource
+        Me.ID_redditto_mensileComboBox.DisplayMember = "descrizione"
+        Me.ID_redditto_mensileComboBox.FormattingEnabled = True
+        Me.ID_redditto_mensileComboBox.Location = New System.Drawing.Point(523, 334)
+        Me.ID_redditto_mensileComboBox.Name = "ID_redditto_mensileComboBox"
+        Me.ID_redditto_mensileComboBox.Size = New System.Drawing.Size(323, 21)
+        Me.ID_redditto_mensileComboBox.TabIndex = 38
+        Me.ID_redditto_mensileComboBox.ValueMember = "ID_reddito"
+        '
+        'RedditoindividualeBindingSource
+        '
+        Me.RedditoindividualeBindingSource.DataMember = "reddito_individuale"
+        Me.RedditoindividualeBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Reddito_individualeTableAdapter
+        '
+        Me.Reddito_individualeTableAdapter.ClearBeforeFill = True
+        '
+        'ID_altro_reddittoLabel
+        '
+        ID_altro_reddittoLabel.AutoSize = True
+        ID_altro_reddittoLabel.Location = New System.Drawing.Point(526, 367)
+        ID_altro_reddittoLabel.Name = "ID_altro_reddittoLabel"
+        ID_altro_reddittoLabel.Size = New System.Drawing.Size(61, 13)
+        ID_altro_reddittoLabel.TabIndex = 39
+        ID_altro_reddittoLabel.Text = "Altri redditti:"
+        '
+        'ID_altro_reddittoComboBox
+        '
+        Me.ID_altro_reddittoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_altro_redditto", True))
+        Me.ID_altro_reddittoComboBox.DataSource = Me.AltriredditiBindingSource
+        Me.ID_altro_reddittoComboBox.DisplayMember = "descrizione"
+        Me.ID_altro_reddittoComboBox.FormattingEnabled = True
+        Me.ID_altro_reddittoComboBox.Location = New System.Drawing.Point(523, 382)
+        Me.ID_altro_reddittoComboBox.Name = "ID_altro_reddittoComboBox"
+        Me.ID_altro_reddittoComboBox.Size = New System.Drawing.Size(323, 21)
+        Me.ID_altro_reddittoComboBox.TabIndex = 40
+        Me.ID_altro_reddittoComboBox.ValueMember = "descrizione"
+        '
+        'AliDBDataSetBindingSource
+        '
+        Me.AliDBDataSetBindingSource.DataSource = Me.AliDBDataSet
+        Me.AliDBDataSetBindingSource.Position = 0
+        '
+        'AltriredditiBindingSource
+        '
+        Me.AltriredditiBindingSource.DataMember = "altri_redditi"
+        Me.AltriredditiBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'Altri_redditiTableAdapter
+        '
+        Me.Altri_redditiTableAdapter.ClearBeforeFill = True
         '
         'F_utente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1218, 751)
+        Me.Controls.Add(ID_altro_reddittoLabel)
+        Me.Controls.Add(Me.ID_altro_reddittoComboBox)
+        Me.Controls.Add(ID_redditto_mensileLabel)
+        Me.Controls.Add(Me.ID_redditto_mensileComboBox)
+        Me.Controls.Add(ID_condizione_professionaleLabel)
+        Me.Controls.Add(Me.ID_condizione_professionaleComboBox)
+        Me.Controls.Add(Lavoro_italiaLabel)
+        Me.Controls.Add(Me.Lavoro_italiaTextBox)
+        Me.Controls.Add(Lavoro_esteroLabel)
+        Me.Controls.Add(Me.Lavoro_esteroTextBox)
+        Me.Controls.Add(ID_figli_conviventiLabel)
+        Me.Controls.Add(Me.ID_figli_conviventiComboBox)
+        Me.Controls.Add(ID_partnerLabel)
+        Me.Controls.Add(Me.ID_partnerComboBox)
+        Me.Controls.Add(Numero_conviventiLabel)
+        Me.Controls.Add(Me.Numero_conviventiTextBox)
+        Me.Controls.Add(ID_nucleo_familiareLabel)
+        Me.Controls.Add(Me.ID_nucleo_familiareComboBox)
         Me.Controls.Add(ID_tipo_alloggioLabel)
         Me.Controls.Add(Me.ID_tipo_alloggioComboBox)
         Me.Controls.Add(ID_dimoraLabel)
@@ -569,6 +858,12 @@ Partial Class F_utente
         CType(Me.CittadinanzaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PaesiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DimoraBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AlloggioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NucleofamiliareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CondizioneprofessionaleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RedditoindividualeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AltriredditiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -615,4 +910,24 @@ Partial Class F_utente
     Friend WithEvents DimoraBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DimoraTableAdapter As Alimentis.AliDBDataSetTableAdapters.dimoraTableAdapter
     Friend WithEvents ID_tipo_alloggioComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents AlloggioBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AlloggioTableAdapter As Alimentis.AliDBDataSetTableAdapters.alloggioTableAdapter
+    Friend WithEvents ID_nucleo_familiareComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents NucleofamiliareBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Nucleo_familiareTableAdapter As Alimentis.AliDBDataSetTableAdapters.nucleo_familiareTableAdapter
+    Friend WithEvents Numero_conviventiTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ID_partnerComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents ID_figli_conviventiComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Lavoro_esteroTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Lavoro_italiaTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ID_condizione_professionaleComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents CondizioneprofessionaleBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Condizione_professionaleTableAdapter As Alimentis.AliDBDataSetTableAdapters.condizione_professionaleTableAdapter
+    Friend WithEvents ID_redditto_mensileComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents RedditoindividualeBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Reddito_individualeTableAdapter As Alimentis.AliDBDataSetTableAdapters.reddito_individualeTableAdapter
+    Friend WithEvents ID_altro_reddittoComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents AliDBDataSetBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents AltriredditiBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Altri_redditiTableAdapter As Alimentis.AliDBDataSetTableAdapters.altri_redditiTableAdapter
 End Class
