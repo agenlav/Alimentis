@@ -42,8 +42,8 @@ Partial Class F_utente
         Dim Lavoro_italiaLabel As System.Windows.Forms.Label
         Dim ID_condizione_professionaleLabel As System.Windows.Forms.Label
         Dim ID_redditto_mensileLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Dim ID_altro_reddittoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F_utente))
         Me.AliDBDataSet = New Alimentis.AliDBDataSet()
         Me.UtentiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.UtentiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.utentiTableAdapter()
@@ -103,8 +103,8 @@ Partial Class F_utente
         Me.RedditoindividualeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Reddito_individualeTableAdapter = New Alimentis.AliDBDataSetTableAdapters.reddito_individualeTableAdapter()
         Me.ID_altro_reddittoComboBox = New System.Windows.Forms.ComboBox()
-        Me.AliDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AltriredditiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.AliDBDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Altri_redditiTableAdapter = New Alimentis.AliDBDataSetTableAdapters.altri_redditiTableAdapter()
         ID_centroLabel = New System.Windows.Forms.Label()
         ID_utenteLabel = New System.Windows.Forms.Label()
@@ -140,8 +140,8 @@ Partial Class F_utente
         CType(Me.NucleofamiliareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CondizioneprofessionaleBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RedditoindividualeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AltriredditiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ID_centroLabel
@@ -318,6 +318,15 @@ Partial Class F_utente
         ID_redditto_mensileLabel.Size = New System.Drawing.Size(88, 13)
         ID_redditto_mensileLabel.TabIndex = 37
         ID_redditto_mensileLabel.Text = "Redditto mensile:"
+        '
+        'ID_altro_reddittoLabel
+        '
+        ID_altro_reddittoLabel.AutoSize = True
+        ID_altro_reddittoLabel.Location = New System.Drawing.Point(526, 367)
+        ID_altro_reddittoLabel.Name = "ID_altro_reddittoLabel"
+        ID_altro_reddittoLabel.Size = New System.Drawing.Size(61, 13)
+        ID_altro_reddittoLabel.TabIndex = 39
+        ID_altro_reddittoLabel.Text = "Altri redditti:"
         '
         'AliDBDataSet
         '
@@ -525,7 +534,9 @@ Partial Class F_utente
         '
         'ID_titolo_studioComboBox
         '
-        Me.ID_titolo_studioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_titolo_studio", True))
+        Me.ID_titolo_studioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.TitolostudioBindingSource, "descrizione", True))
+        Me.ID_titolo_studioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.TitolostudioBindingSource, "ID_titolo_studio", True))
+        Me.ID_titolo_studioComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TitolostudioBindingSource, "descrizione", True))
         Me.ID_titolo_studioComboBox.DataSource = Me.TitolostudioBindingSource
         Me.ID_titolo_studioComboBox.DisplayMember = "descrizione"
         Me.ID_titolo_studioComboBox.FormattingEnabled = True
@@ -546,7 +557,9 @@ Partial Class F_utente
         '
         'ID_stato_civileComboBox
         '
-        Me.ID_stato_civileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_stato_civile", True))
+        Me.ID_stato_civileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedItem", Me.StatocivileBindingSource, "descrizione", True))
+        Me.ID_stato_civileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.StatocivileBindingSource, "ID_stato_civile", True))
+        Me.ID_stato_civileComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StatocivileBindingSource, "descrizione", True))
         Me.ID_stato_civileComboBox.DataSource = Me.StatocivileBindingSource
         Me.ID_stato_civileComboBox.DisplayMember = "descrizione"
         Me.ID_stato_civileComboBox.FormattingEnabled = True
@@ -554,6 +567,7 @@ Partial Class F_utente
         Me.ID_stato_civileComboBox.Name = "ID_stato_civileComboBox"
         Me.ID_stato_civileComboBox.Size = New System.Drawing.Size(320, 21)
         Me.ID_stato_civileComboBox.TabIndex = 16
+        Me.ID_stato_civileComboBox.UseWaitCursor = True
         Me.ID_stato_civileComboBox.ValueMember = "ID_stato_civile"
         '
         'StatocivileBindingSource
@@ -764,15 +778,6 @@ Partial Class F_utente
         '
         Me.Reddito_individualeTableAdapter.ClearBeforeFill = True
         '
-        'ID_altro_reddittoLabel
-        '
-        ID_altro_reddittoLabel.AutoSize = True
-        ID_altro_reddittoLabel.Location = New System.Drawing.Point(526, 367)
-        ID_altro_reddittoLabel.Name = "ID_altro_reddittoLabel"
-        ID_altro_reddittoLabel.Size = New System.Drawing.Size(61, 13)
-        ID_altro_reddittoLabel.TabIndex = 39
-        ID_altro_reddittoLabel.Text = "Altri redditti:"
-        '
         'ID_altro_reddittoComboBox
         '
         Me.ID_altro_reddittoComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.UtentiBindingSource, "ID_altro_redditto", True))
@@ -785,15 +790,15 @@ Partial Class F_utente
         Me.ID_altro_reddittoComboBox.TabIndex = 40
         Me.ID_altro_reddittoComboBox.ValueMember = "descrizione"
         '
-        'AliDBDataSetBindingSource
-        '
-        Me.AliDBDataSetBindingSource.DataSource = Me.AliDBDataSet
-        Me.AliDBDataSetBindingSource.Position = 0
-        '
         'AltriredditiBindingSource
         '
         Me.AltriredditiBindingSource.DataMember = "altri_redditi"
         Me.AltriredditiBindingSource.DataSource = Me.AliDBDataSet
+        '
+        'AliDBDataSetBindingSource
+        '
+        Me.AliDBDataSetBindingSource.DataSource = Me.AliDBDataSet
+        Me.AliDBDataSetBindingSource.Position = 0
         '
         'Altri_redditiTableAdapter
         '
@@ -862,8 +867,8 @@ Partial Class F_utente
         CType(Me.NucleofamiliareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CondizioneprofessionaleBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RedditoindividualeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AltriredditiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AliDBDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
